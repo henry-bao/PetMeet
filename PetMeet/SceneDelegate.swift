@@ -2,11 +2,7 @@
 //  SceneDelegate.swift
 //  PetMeet
 //
-<<<<<<< HEAD
-//  Created by Henry Bao on 5/22/22.
-=======
 //  Created by Henry Bao on 5/24/22.
->>>>>>> 2ef088c (Initial Commit)
 //
 
 import UIKit
