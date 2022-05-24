@@ -2,6 +2,7 @@
 //  ViewController.swift
 //  PetMeet
 //
+<<<<<<< HEAD
 //  Created by Henry Bao on 5/22/22.
 //
 
@@ -13,10 +14,20 @@ class ViewController: UIViewController {
 
     @IBOutlet var signInButton: GIDSignInButton!
     
+=======
+//  Created by Henry Bao on 5/24/22.
+//
+
+import UIKit
+
+class ViewController: UIViewController {
+
+>>>>>>> 2ef088c (Initial Commit)
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
+<<<<<<< HEAD
     
     @IBAction func handleLogin(_ sender: Any) {
             guard let clientID = FirebaseApp.app()?.options.clientID else { return }
@@ -67,3 +78,9 @@ extension ViewController {
         return root
     }
 }
+=======
+
+
+}
+
+>>>>>>> 2ef088c (Initial Commit)

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+<<<<<<< HEAD
 		BA8D84E2283B3C8C004CBC16 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8D84E1283B3C8C004CBC16 /* AppDelegate.swift */; };
 		BA8D84E4283B3C8C004CBC16 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8D84E3283B3C8C004CBC16 /* SceneDelegate.swift */; };
 		BA8D84E6283B3C8C004CBC16 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8D84E5283B3C8C004CBC16 /* ViewController.swift */; };
@@ -43,12 +44,39 @@
 				BA8D84FD283B3CD4004CBC16 /* FirebaseStorage in Frameworks */,
 				BA8D84F9283B3CD4004CBC16 /* FirebaseAuth in Frameworks */,
 				BA8D84FB283B3CD4004CBC16 /* FirebaseFirestore in Frameworks */,
+=======
+		BA8D8533283D7844004CBC16 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8D8532283D7844004CBC16 /* AppDelegate.swift */; };
+		BA8D8535283D7844004CBC16 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8D8534283D7844004CBC16 /* SceneDelegate.swift */; };
+		BA8D8537283D7844004CBC16 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8D8536283D7844004CBC16 /* ViewController.swift */; };
+		BA8D853A283D7844004CBC16 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA8D8538283D7844004CBC16 /* Main.storyboard */; };
+		BA8D853C283D7844004CBC16 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA8D853B283D7844004CBC16 /* Assets.xcassets */; };
+		BA8D853F283D7844004CBC16 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA8D853D283D7844004CBC16 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		BA8D852F283D7844004CBC16 /* PetMeet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetMeet.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA8D8532283D7844004CBC16 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BA8D8534283D7844004CBC16 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		BA8D8536283D7844004CBC16 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BA8D8539283D7844004CBC16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BA8D853B283D7844004CBC16 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BA8D853E283D7844004CBC16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BA8D8540283D7844004CBC16 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BA8D852C283D7844004CBC16 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+>>>>>>> 2ef088c (Initial Commit)
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+<<<<<<< HEAD
 		BA8D84D5283B3C8C004CBC16 = {
 			isa = PBXGroup;
 			children = (
@@ -61,10 +89,25 @@
 			isa = PBXGroup;
 			children = (
 				BA8D84DE283B3C8C004CBC16 /* PetMeet.app */,
+=======
+		BA8D8526283D7844004CBC16 = {
+			isa = PBXGroup;
+			children = (
+				BA8D8531283D7844004CBC16 /* PetMeet */,
+				BA8D8530283D7844004CBC16 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BA8D8530283D7844004CBC16 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BA8D852F283D7844004CBC16 /* PetMeet.app */,
+>>>>>>> 2ef088c (Initial Commit)
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
+<<<<<<< HEAD
 		BA8D84E0283B3C8C004CBC16 /* PetMeet */ = {
 			isa = PBXGroup;
 			children = (
@@ -76,6 +119,18 @@
 				BA8D84EC283B3C8D004CBC16 /* LaunchScreen.storyboard */,
 				BA8D84EF283B3C8D004CBC16 /* Info.plist */,
 				BA8D8500283B3E92004CBC16 /* GoogleService-Info.plist */,
+=======
+		BA8D8531283D7844004CBC16 /* PetMeet */ = {
+			isa = PBXGroup;
+			children = (
+				BA8D8532283D7844004CBC16 /* AppDelegate.swift */,
+				BA8D8534283D7844004CBC16 /* SceneDelegate.swift */,
+				BA8D8536283D7844004CBC16 /* ViewController.swift */,
+				BA8D8538283D7844004CBC16 /* Main.storyboard */,
+				BA8D853B283D7844004CBC16 /* Assets.xcassets */,
+				BA8D853D283D7844004CBC16 /* LaunchScreen.storyboard */,
+				BA8D8540283D7844004CBC16 /* Info.plist */,
+>>>>>>> 2ef088c (Initial Commit)
 			);
 			path = PetMeet;
 			sourceTree = "<group>";
@@ -83,6 +138,7 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+<<<<<<< HEAD
 		BA8D84DD283B3C8C004CBC16 /* PetMeet */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = BA8D84F2283B3C8D004CBC16 /* Build configuration list for PBXNativeTarget "PetMeet" */;
@@ -90,12 +146,22 @@
 				BA8D84DA283B3C8C004CBC16 /* Sources */,
 				BA8D84DB283B3C8C004CBC16 /* Frameworks */,
 				BA8D84DC283B3C8C004CBC16 /* Resources */,
+=======
+		BA8D852E283D7844004CBC16 /* PetMeet */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BA8D8543283D7844004CBC16 /* Build configuration list for PBXNativeTarget "PetMeet" */;
+			buildPhases = (
+				BA8D852B283D7844004CBC16 /* Sources */,
+				BA8D852C283D7844004CBC16 /* Frameworks */,
+				BA8D852D283D7844004CBC16 /* Resources */,
+>>>>>>> 2ef088c (Initial Commit)
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = PetMeet;
+<<<<<<< HEAD
 			packageProductDependencies = (
 				BA8D84F6283B3CD4004CBC16 /* FirebaseAnalytics */,
 				BA8D84F8283B3CD4004CBC16 /* FirebaseAuth */,
@@ -105,24 +171,40 @@
 			);
 			productName = PetMeet;
 			productReference = BA8D84DE283B3C8C004CBC16 /* PetMeet.app */;
+=======
+			productName = PetMeet;
+			productReference = BA8D852F283D7844004CBC16 /* PetMeet.app */;
+>>>>>>> 2ef088c (Initial Commit)
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
+<<<<<<< HEAD
 		BA8D84D6283B3C8C004CBC16 /* Project object */ = {
+=======
+		BA8D8527283D7844004CBC16 /* Project object */ = {
+>>>>>>> 2ef088c (Initial Commit)
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1340;
 				LastUpgradeCheck = 1340;
 				TargetAttributes = {
+<<<<<<< HEAD
 					BA8D84DD283B3C8C004CBC16 = {
+=======
+					BA8D852E283D7844004CBC16 = {
+>>>>>>> 2ef088c (Initial Commit)
 						CreatedOnToolsVersion = 13.4;
 					};
 				};
 			};
+<<<<<<< HEAD
 			buildConfigurationList = BA8D84D9283B3C8C004CBC16 /* Build configuration list for PBXProject "PetMeet" */;
+=======
+			buildConfigurationList = BA8D852A283D7844004CBC16 /* Build configuration list for PBXProject "PetMeet" */;
+>>>>>>> 2ef088c (Initial Commit)
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -130,6 +212,7 @@
 				en,
 				Base,
 			);
+<<<<<<< HEAD
 			mainGroup = BA8D84D5283B3C8C004CBC16;
 			packageReferences = (
 				BA8D84F5283B3CD4004CBC16 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
@@ -140,11 +223,20 @@
 			projectRoot = "";
 			targets = (
 				BA8D84DD283B3C8C004CBC16 /* PetMeet */,
+=======
+			mainGroup = BA8D8526283D7844004CBC16;
+			productRefGroup = BA8D8530283D7844004CBC16 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BA8D852E283D7844004CBC16 /* PetMeet */,
+>>>>>>> 2ef088c (Initial Commit)
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+<<<<<<< HEAD
 		BA8D84DC283B3C8C004CBC16 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -153,12 +245,22 @@
 				BA8D8501283B3E92004CBC16 /* GoogleService-Info.plist in Resources */,
 				BA8D84EB283B3C8D004CBC16 /* Assets.xcassets in Resources */,
 				BA8D84E9283B3C8C004CBC16 /* Main.storyboard in Resources */,
+=======
+		BA8D852D283D7844004CBC16 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA8D853F283D7844004CBC16 /* LaunchScreen.storyboard in Resources */,
+				BA8D853C283D7844004CBC16 /* Assets.xcassets in Resources */,
+				BA8D853A283D7844004CBC16 /* Main.storyboard in Resources */,
+>>>>>>> 2ef088c (Initial Commit)
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+<<<<<<< HEAD
 		BA8D84DA283B3C8C004CBC16 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -166,24 +268,47 @@
 				BA8D84E6283B3C8C004CBC16 /* ViewController.swift in Sources */,
 				BA8D84E2283B3C8C004CBC16 /* AppDelegate.swift in Sources */,
 				BA8D84E4283B3C8C004CBC16 /* SceneDelegate.swift in Sources */,
+=======
+		BA8D852B283D7844004CBC16 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA8D8537283D7844004CBC16 /* ViewController.swift in Sources */,
+				BA8D8533283D7844004CBC16 /* AppDelegate.swift in Sources */,
+				BA8D8535283D7844004CBC16 /* SceneDelegate.swift in Sources */,
+>>>>>>> 2ef088c (Initial Commit)
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+<<<<<<< HEAD
 		BA8D84E7283B3C8C004CBC16 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				BA8D84E8283B3C8C004CBC16 /* Base */,
+=======
+		BA8D8538283D7844004CBC16 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BA8D8539283D7844004CBC16 /* Base */,
+>>>>>>> 2ef088c (Initial Commit)
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
+<<<<<<< HEAD
 		BA8D84EC283B3C8D004CBC16 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				BA8D84ED283B3C8D004CBC16 /* Base */,
+=======
+		BA8D853D283D7844004CBC16 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BA8D853E283D7844004CBC16 /* Base */,
+>>>>>>> 2ef088c (Initial Commit)
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -191,7 +316,11 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+<<<<<<< HEAD
 		BA8D84F0283B3C8D004CBC16 /* Debug */ = {
+=======
+		BA8D8541283D7844004CBC16 /* Debug */ = {
+>>>>>>> 2ef088c (Initial Commit)
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -251,7 +380,11 @@
 			};
 			name = Debug;
 		};
+<<<<<<< HEAD
 		BA8D84F1283B3C8D004CBC16 /* Release */ = {
+=======
+		BA8D8542283D7844004CBC16 /* Release */ = {
+>>>>>>> 2ef088c (Initial Commit)
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -305,7 +438,11 @@
 			};
 			name = Release;
 		};
+<<<<<<< HEAD
 		BA8D84F3283B3C8D004CBC16 /* Debug */ = {
+=======
+		BA8D8544283D7844004CBC16 /* Debug */ = {
+>>>>>>> 2ef088c (Initial Commit)
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -333,7 +470,11 @@
 			};
 			name = Debug;
 		};
+<<<<<<< HEAD
 		BA8D84F4283B3C8D004CBC16 /* Release */ = {
+=======
+		BA8D8545283D7844004CBC16 /* Release */ = {
+>>>>>>> 2ef088c (Initial Commit)
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -364,25 +505,42 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+<<<<<<< HEAD
 		BA8D84D9283B3C8C004CBC16 /* Build configuration list for PBXProject "PetMeet" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BA8D84F0283B3C8D004CBC16 /* Debug */,
 				BA8D84F1283B3C8D004CBC16 /* Release */,
+=======
+		BA8D852A283D7844004CBC16 /* Build configuration list for PBXProject "PetMeet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA8D8541283D7844004CBC16 /* Debug */,
+				BA8D8542283D7844004CBC16 /* Release */,
+>>>>>>> 2ef088c (Initial Commit)
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+<<<<<<< HEAD
 		BA8D84F2283B3C8D004CBC16 /* Build configuration list for PBXNativeTarget "PetMeet" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BA8D84F3283B3C8D004CBC16 /* Debug */,
 				BA8D84F4283B3C8D004CBC16 /* Release */,
+=======
+		BA8D8543283D7844004CBC16 /* Build configuration list for PBXNativeTarget "PetMeet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA8D8544283D7844004CBC16 /* Debug */,
+				BA8D8545283D7844004CBC16 /* Release */,
+>>>>>>> 2ef088c (Initial Commit)
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+<<<<<<< HEAD
 
 /* Begin XCRemoteSwiftPackageReference section */
 		BA8D84F5283B3CD4004CBC16 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
@@ -432,4 +590,8 @@
 /* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BA8D84D6283B3C8C004CBC16 /* Project object */;
+=======
+	};
+	rootObject = BA8D8527283D7844004CBC16 /* Project object */;
+>>>>>>> 2ef088c (Initial Commit)
 }
