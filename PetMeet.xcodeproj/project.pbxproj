@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		79B1937E283DBE050055AAB7 /* BreedSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B1937D283DBE050055AAB7 /* BreedSelectViewController.swift */; };
+		79B19380283DBEB60055AAB7 /* CategorySelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B1937F283DBEB60055AAB7 /* CategorySelectViewController.swift */; };
 		BA8D857E283D807C004CBC16 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8D857D283D807C004CBC16 /* AppDelegate.swift */; };
 		BA8D8580283D807C004CBC16 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8D857F283D807C004CBC16 /* SceneDelegate.swift */; };
 		BA8D8582283D807C004CBC16 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8D8581283D807C004CBC16 /* ViewController.swift */; };
@@ -27,6 +29,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		79B1937D283DBE050055AAB7 /* BreedSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedSelectViewController.swift; sourceTree = "<group>"; };
+		79B1937F283DBEB60055AAB7 /* CategorySelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySelectViewController.swift; sourceTree = "<group>"; };
 		BA8D857A283D807C004CBC16 /* PetMeet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetMeet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA8D857D283D807C004CBC16 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA8D857F283D807C004CBC16 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -92,6 +96,8 @@
 				BAD28A41283DA8C9009F6113 /* ViewOtherProfileViewController.swift */,
 				BAD28A43283DA8D8009F6113 /* ViewOtherPetProfileViewController.swift */,
 				BAD28A45283DA8EB009F6113 /* FilterViewController.swift */,
+				79B1937D283DBE050055AAB7 /* BreedSelectViewController.swift */,
+				79B1937F283DBEB60055AAB7 /* CategorySelectViewController.swift */,
 				BA8D8583283D807C004CBC16 /* Main.storyboard */,
 				BA8D8586283D807D004CBC16 /* Assets.xcassets */,
 				BA8D8588283D807D004CBC16 /* LaunchScreen.storyboard */,
@@ -188,8 +194,10 @@
 				BAD28A46283DA8EB009F6113 /* FilterViewController.swift in Sources */,
 				BAD28A3E283DA89A009F6113 /* LikeListViewController.swift in Sources */,
 				BAD28A42283DA8C9009F6113 /* ViewOtherProfileViewController.swift in Sources */,
+				79B1937E283DBE050055AAB7 /* BreedSelectViewController.swift in Sources */,
 				BA8D857E283D807C004CBC16 /* AppDelegate.swift in Sources */,
 				BAD28A40283DA8B8009F6113 /* MyPetProfileViewController.swift in Sources */,
+				79B19380283DBEB60055AAB7 /* CategorySelectViewController.swift in Sources */,
 				BA8D8580283D807C004CBC16 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
