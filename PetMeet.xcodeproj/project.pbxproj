@@ -26,6 +26,7 @@
 		BAD28A42283DA8C9009F6113 /* ViewOtherProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD28A41283DA8C9009F6113 /* ViewOtherProfileViewController.swift */; };
 		BAD28A44283DA8D8009F6113 /* ViewOtherPetProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD28A43283DA8D8009F6113 /* ViewOtherPetProfileViewController.swift */; };
 		BAD28A46283DA8EB009F6113 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD28A45283DA8EB009F6113 /* FilterViewController.swift */; };
+		BAD28A49283DD134009F6113 /* tabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD28A48283DD134009F6113 /* tabBarViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		BAD28A41283DA8C9009F6113 /* ViewOtherProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewOtherProfileViewController.swift; sourceTree = "<group>"; };
 		BAD28A43283DA8D8009F6113 /* ViewOtherPetProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewOtherPetProfileViewController.swift; sourceTree = "<group>"; };
 		BAD28A45283DA8EB009F6113 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
+		BAD28A48283DD134009F6113 /* tabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tabBarViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 				BA8D8593283D80D3004CBC16 /* PetMeetRelease.entitlements */,
 				BA8D857D283D807C004CBC16 /* AppDelegate.swift */,
 				BA8D857F283D807C004CBC16 /* SceneDelegate.swift */,
+				BAD28A48283DD134009F6113 /* tabBarViewController.swift */,
 				BA8D8581283D807C004CBC16 /* ViewController.swift */,
 				BAD28A39283DA186009F6113 /* MatchViewController.swift */,
 				BAD28A3B283DA887009F6113 /* MyProfileViewController.swift */,
@@ -191,6 +194,7 @@
 				BAD28A3A283DA186009F6113 /* MatchViewController.swift in Sources */,
 				BAD28A44283DA8D8009F6113 /* ViewOtherPetProfileViewController.swift in Sources */,
 				BA8D8582283D807C004CBC16 /* ViewController.swift in Sources */,
+				BAD28A49283DD134009F6113 /* tabBarViewController.swift in Sources */,
 				BAD28A46283DA8EB009F6113 /* FilterViewController.swift in Sources */,
 				BAD28A3E283DA89A009F6113 /* LikeListViewController.swift in Sources */,
 				BAD28A42283DA8C9009F6113 /* ViewOtherProfileViewController.swift in Sources */,

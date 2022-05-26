@@ -8,6 +8,7 @@
 import UIKit
 import AuthenticationServices
 import FirebaseAuth
+import FirebaseFirestore
 import CryptoKit
 
 fileprivate var currentNonce: String?
@@ -101,7 +102,6 @@ extension ViewController: ASAuthorizationControllerDelegate {
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
         let alert = UIAlertController(title: "Error", message: "Could not sign you in", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-        print(error)
     }
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
         guard let nonce = currentNonce else {
@@ -119,10 +119,18 @@ extension ViewController: ASAuthorizationControllerDelegate {
         let oAuth = OAuthProvider.credential(withProviderID: "apple.com", idToken: tokenString, rawNonce: nonce)
         
         Auth.auth().signIn(with: oAuth) { (result, error) in
-            
+                        
+            if error != nil {
+                let alert = UIAlertController(title: "Error", message: "Could not sign you in", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                return
+            }
+                        
             let firstName = credential.fullName?.givenName
             let lastName = credential.fullName?.familyName
             let email = credential.email
+            
+            // TODO: FireStore - store first, last, email; result.user.uid is the primary key
             
             self.hasAccount(firstName: firstName, lastName: lastName, email: email)
         }
@@ -130,8 +138,13 @@ extension ViewController: ASAuthorizationControllerDelegate {
     
     func hasAccount(firstName: String?, lastName: String?, email: String?) {
         guard ((Auth.auth().currentUser?.uid) != nil) else { return }
+//        print("hello")
 //        let vc = UIViewController()
 //        vc.view.backgroundColor = .orange
-//        navigationController?.pushViewController(vc, animated: true)
+//        self.present(vc, animated: true)
+        
+        if let tabVC = storyboard?.instantiateViewController(withIdentifier: "TabBarController") as? tabBarViewController {
+            self.navigationController?.pushViewController(tabVC, animated: true)
+        }
     }
 }
