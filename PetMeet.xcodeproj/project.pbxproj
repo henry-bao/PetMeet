@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		790B92F628408218002B6A92 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790B92F528408218002B6A92 /* ProfileTableViewCell.swift */; };
 		79B1937E283DBE050055AAB7 /* BreedSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B1937D283DBE050055AAB7 /* BreedSelectViewController.swift */; };
 		79B19380283DBEB60055AAB7 /* CategorySelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B1937F283DBEB60055AAB7 /* CategorySelectViewController.swift */; };
 		BA8D857E283D807C004CBC16 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8D857D283D807C004CBC16 /* AppDelegate.swift */; };
@@ -30,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		790B92F528408218002B6A92 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		79B1937D283DBE050055AAB7 /* BreedSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedSelectViewController.swift; sourceTree = "<group>"; };
 		79B1937F283DBEB60055AAB7 /* CategorySelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySelectViewController.swift; sourceTree = "<group>"; };
 		BA8D857A283D807C004CBC16 /* PetMeet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetMeet.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,6 +96,7 @@
 				BA8D8581283D807C004CBC16 /* ViewController.swift */,
 				BAD28A39283DA186009F6113 /* MatchViewController.swift */,
 				BAD28A3B283DA887009F6113 /* MyProfileViewController.swift */,
+				790B92F528408218002B6A92 /* ProfileTableViewCell.swift */,
 				BAD28A3D283DA89A009F6113 /* LikeListViewController.swift */,
 				BAD28A3F283DA8B8009F6113 /* MyPetProfileViewController.swift */,
 				BAD28A41283DA8C9009F6113 /* ViewOtherProfileViewController.swift */,
@@ -191,6 +194,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAD28A3C283DA887009F6113 /* MyProfileViewController.swift in Sources */,
+				790B92F628408218002B6A92 /* ProfileTableViewCell.swift in Sources */,
 				BAD28A3A283DA186009F6113 /* MatchViewController.swift in Sources */,
 				BAD28A44283DA8D8009F6113 /* ViewOtherPetProfileViewController.swift in Sources */,
 				BA8D8582283D807C004CBC16 /* ViewController.swift in Sources */,
