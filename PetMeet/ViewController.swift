@@ -15,7 +15,9 @@ fileprivate var currentNonce: String?
 
 class ViewController: UIViewController {
     private let signInButton = ASAuthorizationAppleIDButton(type: .signIn, style: .black)
-
+    private let firedb = Firestore.firestore()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -125,25 +127,42 @@ extension ViewController: ASAuthorizationControllerDelegate {
                 alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
                 return
             }
-                        
-            let firstName = credential.fullName?.givenName
-            let lastName = credential.fullName?.familyName
-            let email = credential.email
             
-            // TODO: FireStore - store first, last, email; result.user.uid is the primary key
             
-            self.hasAccount(firstName: firstName, lastName: lastName, email: email)
+            var firstName = credential.fullName?.familyName
+            var lastName = credential.fullName?.givenName
+            let email = result?.user.email
+            let userID = result?.user.uid
+            
+            // user signed in for the first time
+            if firstName != nil && lastName != nil {
+                let newUserDoc = self.firedb.collection("users").document(userID!)
+                newUserDoc.setData(["uid": userID!, "email": email!, "first name": firstName!, "last name": lastName!])
+//                let newUserDocID = newUserDoc.documentID
+                self.hasAccount(firstName: firstName!, lastName: lastName!, email: email!, uid: userID!)
+            } else {
+                self.firedb.collection("users").document(userID!).getDocument{ (document, error) in
+                    if error == nil {
+                        if document != nil && document!.exists {
+                            let documentData = document!.data()
+                            firstName = documentData!["first name"] as? String
+                            lastName = documentData!["last name"] as? String
+//                            print("\(firstName!), \(lastName!), \(email!), \(userID!)")
+                            self.hasAccount(firstName: firstName!, lastName: lastName!, email: email!, uid: userID!)
+                        }
+                    }
+                }
+            }
         }
     }
     
-    func hasAccount(firstName: String?, lastName: String?, email: String?) {
+    func hasAccount(firstName: String?, lastName: String?, email: String?, uid: String?) {
         guard ((Auth.auth().currentUser?.uid) != nil) else { return }
-//        print("hello")
-//        let vc = UIViewController()
-//        vc.view.backgroundColor = .orange
-//        self.present(vc, animated: true)
-        
         if let tabVC = storyboard?.instantiateViewController(withIdentifier: "TabBarController") as? tabBarViewController {
+            tabVC.firstName = firstName!
+            tabVC.lastName = lastName!
+            tabVC.email = email!
+            tabVC.userID = uid!
             self.navigationController?.pushViewController(tabVC, animated: true)
         }
     }

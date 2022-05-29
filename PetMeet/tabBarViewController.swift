@@ -8,7 +8,12 @@
 import UIKit
 
 class tabBarViewController: UITabBarController {
-
+    var firstName = ""
+    var lastName = ""
+    var email = ""
+    var userID = ""
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.hidesBackButton = true
