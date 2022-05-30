@@ -12,13 +12,13 @@ class tabBarViewController: UITabBarController {
     var lastName = ""
     var email = ""
     var userID = ""
+    var zipCode = ""
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.hidesBackButton = true
-
-        // Do any additional setup after loading the view.
+        
     }
     
 

@@ -17,7 +17,6 @@ class ViewController: UIViewController {
     private let signInButton = ASAuthorizationAppleIDButton(type: .signIn, style: .black)
     private let firedb = Firestore.firestore()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -128,17 +127,17 @@ extension ViewController: ASAuthorizationControllerDelegate {
                 return
             }
             
-            var firstName = credential.fullName?.givenName
             var lastName = credential.fullName?.familyName
+            var firstName = credential.fullName?.givenName
             let email = result?.user.email
             let userID = result?.user.uid
-                        
+            var zipCode = ""
+
             // user signed in for the first time
             if firstName != nil && lastName != nil {
                 let newUserDoc = self.firedb.collection("users").document(userID!)
-                newUserDoc.setData(["uid": userID!, "email": email!, "first name": firstName!, "last name": lastName!])
-//                let newUserDocID = newUserDoc.documentID
-                self.hasAccount(firstName: firstName!, lastName: lastName!, email: email!, uid: userID!)
+                newUserDoc.setData(["uid": userID!, "email": email!, "first name": firstName!, "last name": lastName!, "zip code": zipCode])
+                self.hasAccount(firstName: firstName!, lastName: lastName!, email: email!, uid: userID!, zipCode: zipCode)
             } else {
                 self.firedb.collection("users").document(userID!).getDocument{ (document, error) in
                     if error == nil {
@@ -146,8 +145,9 @@ extension ViewController: ASAuthorizationControllerDelegate {
                             let documentData = document!.data()
                             firstName = documentData!["first name"] as? String
                             lastName = documentData!["last name"] as? String
+                            zipCode = documentData!["zip code"] as! String
 //                            print("\(firstName!), \(lastName!), \(email!), \(userID!)")
-                            self.hasAccount(firstName: firstName!, lastName: lastName!, email: email!, uid: userID!)
+                            self.hasAccount(firstName: firstName!, lastName: lastName!, email: email!, uid: userID!, zipCode: zipCode)
                         }
                     }
                 }
@@ -155,13 +155,14 @@ extension ViewController: ASAuthorizationControllerDelegate {
         }
     }
     
-    func hasAccount(firstName: String?, lastName: String?, email: String?, uid: String?) {
+    func hasAccount(firstName: String?, lastName: String?, email: String?, uid: String?, zipCode: String?) {
         guard ((Auth.auth().currentUser?.uid) != nil) else { return }
         if let tabVC = storyboard?.instantiateViewController(withIdentifier: "TabBarController") as? tabBarViewController {
             tabVC.firstName = firstName!
             tabVC.lastName = lastName!
             tabVC.email = email!
             tabVC.userID = uid!
+            tabVC.zipCode = zipCode!
             self.navigationController?.pushViewController(tabVC, animated: true)
         }
     }
