@@ -128,12 +128,11 @@ extension ViewController: ASAuthorizationControllerDelegate {
                 return
             }
             
-            
-            var firstName = credential.fullName?.familyName
-            var lastName = credential.fullName?.givenName
+            var firstName = credential.fullName?.givenName
+            var lastName = credential.fullName?.familyName
             let email = result?.user.email
             let userID = result?.user.uid
-            
+                        
             // user signed in for the first time
             if firstName != nil && lastName != nil {
                 let newUserDoc = self.firedb.collection("users").document(userID!)
