@@ -9,9 +9,15 @@ import UIKit
 import FirebaseFirestore
 import AuthenticationServices
 import FirebaseAuth
+import FirebaseStorage
 
-class MyProfileViewController: UIViewController{
+class MyProfileViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     private let firedb = Firestore.firestore()
+    private let fStorage = Storage.storage().reference()
+    
+    final let catBreedList = ["Domestic Shorthair", "American Longhair", "Domestic Longhair", "Siamese", "Russian Blue", "Ragdoll", "Bombay", "Persian", "British Shorthair", "American Curl"]
+    final let dogBreedList = ["Siberian Husky", "Golden Retriever", "Labrador Retriever", "French Bulldog", "Beagle", "German Shepherd dog", "Poodle", "Yorkshire Terriers", "Shetland Sheepdog"]
+    
     var firstName = ""
     var lastName = ""
     var email = ""
@@ -23,6 +29,7 @@ class MyProfileViewController: UIViewController{
     var petBreed = ""
     var petGender = ""
     
+    @IBOutlet weak var appNameToolbar: UIBarButtonItem!
     @IBOutlet weak var userEmailField: UITextField!
     @IBOutlet weak var userFirstNameField: UITextField!
     @IBOutlet weak var userLastNameField: UITextField!
@@ -31,14 +38,79 @@ class MyProfileViewController: UIViewController{
     @IBOutlet weak var petAgeField: UITextField!
     @IBOutlet weak var petCategorySeg: UISegmentedControl!
     @IBOutlet weak var petGenderSeg: UISegmentedControl!
-    @IBOutlet weak var petBreedBtn: UIButton!
     @IBOutlet weak var editBtn: UIButton!
     @IBOutlet weak var confirmBtn: UIButton!
+    @IBOutlet weak var petBreedField: UITextField!
+    @IBOutlet weak var petPhotoImage: UIImageView!
     
-    @IBAction func petBreedBtnPressed(_ sender: Any) {
-        
+    @IBAction func uploadPetPhoto(_ sender: Any) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
+        present(imagePicker, animated: true)
     }
     
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            petPhotoImage.image = image
+            guard let imageData = image.pngData() else {
+                return
+            }
+                        
+            fStorage.child("images/\(self.userID).png").putData(imageData, metadata: nil, completion: { _, error in
+                guard error == nil else {
+                    print("Failed to upload iamge")
+                    return
+                }
+                self.fStorage.child("images/\(self.userID).png").downloadURL(completion: {url, error in
+                    guard let url = url, error == nil else {
+                        return
+                    }
+                    let urlString = url.absoluteString
+                    print("url: \(urlString)")
+                    UserDefaults.standard.set(urlString, forKey: "\(self.userID)")
+                })
+            })
+            
+        }
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    var petBreedPickerView = UIPickerView()
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        if petCategorySeg.selectedSegmentIndex == 0 {
+            return catBreedList.count
+        } else {
+            return dogBreedList.count
+        }
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        if petCategorySeg.selectedSegmentIndex == 0 {
+            return catBreedList[row]
+        } else {
+            return dogBreedList[row]
+        }
+    }
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if petCategorySeg.selectedSegmentIndex == 0 {
+            petBreedField.text = catBreedList[row]
+        } else {
+            petBreedField.text = dogBreedList[row]
+        }
+        petBreedField.resignFirstResponder()
+        
+    }
     
     @IBAction func editBtnPressed(_ sender: Any) {
         enableUserInteraction()
@@ -74,7 +146,7 @@ class MyProfileViewController: UIViewController{
                 } else {
                     self.petCategorySeg.selectedSegmentIndex = 1
                 }
-                self.petBreedBtn.titleLabel?.text = self.petBreed
+                self.petBreedField.text = self.petBreed
                 if self.petGender == "female" {
                     self.petGenderSeg.selectedSegmentIndex = 0
                 } else {
@@ -83,8 +155,21 @@ class MyProfileViewController: UIViewController{
             } else {
                 print("error fetching pets data")
             }
-            
         }
+        
+        guard let urlString = UserDefaults.standard.value(forKey: "\(self.userID)") as? String, let url = URL(string: urlString) else {
+            return
+        }
+        URLSession.shared.dataTask(with: url, completionHandler: { data, _, error in
+            guard let data = data, error == nil else {
+                return
+            }
+            
+            DispatchQueue.main.async {
+                let image = UIImage(data: data)
+                self.petPhotoImage.image = image
+            }
+        }).resume()
     }
     
     func disableUserInteraction() {
@@ -96,7 +181,7 @@ class MyProfileViewController: UIViewController{
         petGenderSeg.isUserInteractionEnabled = false
         petNameField.isUserInteractionEnabled = false
         petCategorySeg.isUserInteractionEnabled = false
-        petBreedBtn.isUserInteractionEnabled = false
+        petBreedField.isUserInteractionEnabled = false
     }
     
     func enableUserInteraction() {
@@ -108,7 +193,7 @@ class MyProfileViewController: UIViewController{
         petGenderSeg.isUserInteractionEnabled = true
         petNameField.isUserInteractionEnabled = true
         petCategorySeg.isUserInteractionEnabled = true
-        petBreedBtn.isUserInteractionEnabled = true
+        petBreedField.isUserInteractionEnabled = true
     }
     
     @IBAction func confirmBtnPressed(_ sender: Any) {
@@ -134,7 +219,7 @@ class MyProfileViewController: UIViewController{
         } else {
             newPetGender = "male"
         }
-        newPetBreed = petBreedBtn.titleLabel!.text!
+        newPetBreed = petBreedField.text!
         firedb.collection("users").document(userID).setData(["email": newUserEmail!, "first name": newUserFirstName!, "last name": newUserLastName!, "zip code": newUserZipCode!])
         firedb.collection("users").document(userID).collection("pets").getDocuments{ (snapshot, error) in
             if error == nil && snapshot != nil {
@@ -156,11 +241,20 @@ class MyProfileViewController: UIViewController{
 //        }
 //    }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        petBreedPickerView.delegate = self
+        petBreedPickerView.dataSource = self
+        petBreedField.inputView = petBreedPickerView
+        petBreedField.tintColor = .clear
+        
         self.hideKeyboardWhenTappedAround()
+        self.navigationItem.hidesBackButton = true
+        self.navigationController?.isNavigationBarHidden = true
         confirmBtn.isEnabled = false
-        navigationItem.hidesBackButton = true
+        
         displayUserInfo()
         disableUserInteraction()
         
