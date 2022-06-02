@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="SHM-gj-gsi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="U86-ey-OGI">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -361,7 +361,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   PetMeet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ac6-Ml-fEu">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                                <rect key="frame" x="0.0" y="44" width="414" height="20.5"/>
                                                 <color key="backgroundColor" red="1" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" id="MzA-a7-iLy"/>
@@ -392,8 +392,8 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Contact Information" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wsS-hT-dEq">
-                                                <rect key="frame" x="17" y="330" width="152" height="20.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact Information" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wsS-hT-dEq">
+                                                <rect key="frame" x="20" y="329.5" width="152" height="20.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="152" id="Azh-BD-Soy"/>
                                                 </constraints>
@@ -461,8 +461,8 @@
                                                     <constraint firstAttribute="height" constant="100" id="cQT-tp-0tN"/>
                                                 </constraints>
                                             </stackView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Pet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VVD-k5-ZEI">
-                                                <rect key="frame" x="17" y="522" width="25.5" height="20.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VVD-k5-ZEI">
+                                                <rect key="frame" x="20" y="520" width="25.5" height="20.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="25.5" id="uPL-IN-UyY"/>
                                                 </constraints>
@@ -547,7 +547,7 @@
                                                 </subviews>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" red="0.99215686319999996" green="0.94901961089999998" blue="0.97254908080000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstItem="nZg-u9-Wbv" firstAttribute="leading" secondItem="ppu-Bg-ALC" secondAttribute="leading" constant="40" id="26m-Ht-Auy"/>
                                             <constraint firstItem="6v4-eJ-qs3" firstAttribute="top" secondItem="VVD-k5-ZEI" secondAttribute="bottom" constant="20" id="4S4-d1-rRM"/>
@@ -560,6 +560,7 @@
                                             <constraint firstAttribute="trailing" secondItem="ac6-Ml-fEu" secondAttribute="trailing" id="Opd-s7-Bjm"/>
                                             <constraint firstItem="wsS-hT-dEq" firstAttribute="leading" secondItem="ppu-Bg-ALC" secondAttribute="leading" constant="20" id="Pzu-VV-I3p"/>
                                             <constraint firstItem="FSA-MV-LDC" firstAttribute="centerX" secondItem="ppu-Bg-ALC" secondAttribute="centerX" id="ROm-65-RYY"/>
+                                            <constraint firstItem="nyJ-lH-LDz" firstAttribute="top" secondItem="ac6-Ml-fEu" secondAttribute="bottom" constant="20" id="Rhe-h0-Glg"/>
                                             <constraint firstItem="z0s-EU-OfB" firstAttribute="top" secondItem="FSA-MV-LDC" secondAttribute="bottom" constant="20" id="W4k-0g-FF9"/>
                                             <constraint firstItem="z0s-EU-OfB" firstAttribute="leading" secondItem="ppu-Bg-ALC" secondAttribute="leading" constant="40" id="Zi2-sd-nnu"/>
                                             <constraint firstItem="6v4-eJ-qs3" firstAttribute="centerX" secondItem="ppu-Bg-ALC" secondAttribute="centerX" id="aH4-D1-LKk"/>
@@ -595,6 +596,19 @@
                         </constraints>
                     </view>
                     <size key="freeformSize" width="414" height="1000"/>
+                    <connections>
+                        <outlet property="petAge" destination="iSD-8J-rJz" id="pPl-0F-Obd"/>
+                        <outlet property="petBreed" destination="Adt-No-bfL" id="QfC-R8-BbZ"/>
+                        <outlet property="petCategory" destination="uHi-l4-Sj2" id="jrX-MN-Ajh"/>
+                        <outlet property="petGender" destination="gAL-ZJ-tVX" id="saa-s5-74x"/>
+                        <outlet property="petImage" destination="6v4-eJ-qs3" id="vv1-x1-UTL"/>
+                        <outlet property="petName" destination="FSA-MV-LDC" id="oio-AO-sWB"/>
+                        <outlet property="userEmail" destination="CBr-z2-At4" id="5zo-Mw-bvH"/>
+                        <outlet property="userImage" destination="Txs-hr-IGB" id="cec-bL-jgP"/>
+                        <outlet property="userLocation" destination="mQy-fd-B7T" id="QJF-vL-sra"/>
+                        <outlet property="userName" destination="mQy-fd-B7T" id="WPf-Do-KDi"/>
+                        <outlet property="userPhone" destination="wkK-u1-88N" id="fj6-RD-rjq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z2s-eI-KJa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
