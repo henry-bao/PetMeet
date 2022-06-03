@@ -156,7 +156,7 @@ class MyProfileViewController: UIViewController, UIPickerViewDelegate, UIPickerV
                 print("error fetching pets data")
             }
         }
-        
+
         guard let urlString = UserDefaults.standard.value(forKey: "\(self.userID)") as? String, let url = URL(string: urlString) else {
             return
         }
@@ -164,7 +164,7 @@ class MyProfileViewController: UIViewController, UIPickerViewDelegate, UIPickerV
             guard let data = data, error == nil else {
                 return
             }
-            
+
             DispatchQueue.main.async {
                 let image = UIImage(data: data)
                 self.petPhotoImage.image = image
