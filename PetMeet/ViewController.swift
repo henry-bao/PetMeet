@@ -137,6 +137,7 @@ extension ViewController: ASAuthorizationControllerDelegate {
             if firstName != nil && lastName != nil {
                 let newUserDoc = self.firedb.collection("users").document(userID!)
                 newUserDoc.setData(["uid": userID!, "email": email!, "first name": firstName!, "last name": lastName!, "zip code": zipCode])
+                self.firedb.collection("users").document(userID!).collection("pets").document().setData(["name": "", "age":"", "category":"","breed":"","gender":""])
                 self.hasAccount(firstName: firstName!, lastName: lastName!, email: email!, uid: userID!, zipCode: zipCode)
             } else {
                 self.firedb.collection("users").document(userID!).getDocument{ (document, error) in
