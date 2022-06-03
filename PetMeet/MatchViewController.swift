@@ -14,48 +14,68 @@ class MatchViewController: UIViewController {
     @IBOutlet weak var genderLabel: UILabel!
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var dislikeButton: UIButton!
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var petPhotoImage: UIImageView!
     
-    var nameAndAge = ""
+    var petname = ""
+    var petage = ""
     var breed = ""
     var gender = ""
-    var img = ""
+    var petimg = ""
+    var userID: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        nameAndAgeLabel.text = nameAndAge
+        getData()
+        nameAndAgeLabel.text = "\(petname) \(petage)"
         breedLabel.text = breed
         genderLabel.text = gender
     }
     
-//    func getData() {
-//        // get reference
-//        let db = Firestore.firestore()
-//        
-//        // read
-//        db.collection("users").getDocuments { snapshot, error in
-//            // check for errors
-//            if error == nil {
-//                if let snapshot = snapshot {
-//                    // get all documents
-//
-//                }
-//            } else {
-//
-//            }
-//        }
-//    }
-    
+    func getData() {
+        // get reference
+        let db = Firestore.firestore()
+        
+        db.collection("users").getDocuments { (snapshot, error) in
+            if error == nil && snapshot != nil {
+                // get all userids
+                for i in 0...snapshot!.documents.count-1 {
+                    let document = snapshot!.documents[i]
+                    self.userID.append(document.documentID)
+                }
+                
+                // fetch pet info
+                db.collection("users").document(self.userID[0]).collection("pets").getDocuments { (snapshot, error) in
+                    if error == nil && snapshot != nil {
+                        let document = snapshot!.documents[0]
+                        let docuData = document.data()
+                        self.petname = docuData["name"] as! String
+                        self.petage = docuData["age"] as! String
+                        self.breed = docuData["breed"] as! String
+                        self.gender = docuData["gender"] as! String
+                        self.nameAndAgeLabel.text = "\(self.petname)  \(self.petage) yrs"
+                        self.breedLabel.text = self.breed
+                        self.genderLabel.text = self.gender
+                    }
+                }
+                
+                // fetch image
+                guard let urlString = UserDefaults.standard.value(forKey: "\(self.userID[0])") as? String, let url = URL(string: urlString)
+                    else {
+                            return
+                    }
 
-    /*
-    // MARK: - Navigation
+                URLSession.shared.dataTask(with: url, completionHandler: { data, _, error in
+                    guard let data = data, error == nil else {
+                        return
+                    }
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+                    DispatchQueue.main.async {
+                        let image = UIImage(data: data)
+                        self.petPhotoImage.image = image
+                    }
+                }).resume()
+            }
+        }
     }
-    */
-
 }
