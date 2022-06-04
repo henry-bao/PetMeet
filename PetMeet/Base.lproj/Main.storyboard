@@ -719,7 +719,7 @@
                                                     <action selector="uploadPetPhoto:" destination="5Se-KA-6eM" eventType="touchUpInside" id="VbC-sf-G0Y"/>
                                                 </connections>
                                             </button>
-                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uHV-pP-naF">
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="uHV-pP-naF">
                                                 <rect key="frame" x="20" y="837.5" width="374" height="250"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="AFN-U1-kmO">
@@ -758,32 +758,32 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="sUw-gM-dJK">
-                                                        <rect key="frame" x="70.5" y="0.0" width="303.5" height="250"/>
+                                                        <rect key="frame" x="90.5" y="0.0" width="283.5" height="250"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Name!" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OyS-Xb-VJP">
-                                                                <rect key="frame" x="0.0" y="0.0" width="303.5" height="34"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="283.5" height="34"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="e.g. 5" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="piT-Jl-Tdh">
-                                                                <rect key="frame" x="0.0" y="54" width="303.5" height="34"/>
+                                                                <rect key="frame" x="0.0" y="54" width="283.5" height="34"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
                                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="mZR-3J-Ab3">
-                                                                <rect key="frame" x="0.0" y="108" width="303.5" height="35"/>
+                                                                <rect key="frame" x="0.0" y="108" width="283.5" height="35"/>
                                                                 <segments>
                                                                     <segment title="Cat"/>
                                                                     <segment title="Dog"/>
                                                                 </segments>
                                                             </segmentedControl>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select a Breed" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="geN-MO-nBP">
-                                                                <rect key="frame" x="0.0" y="162" width="303.5" height="34"/>
+                                                                <rect key="frame" x="0.0" y="162" width="283.5" height="34"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
                                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Q8I-Hq-fUa">
-                                                                <rect key="frame" x="0.0" y="216" width="303.5" height="35"/>
+                                                                <rect key="frame" x="0.0" y="216" width="283.5" height="35"/>
                                                                 <segments>
                                                                     <segment title="Female"/>
                                                                     <segment title="Male"/>
