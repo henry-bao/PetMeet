@@ -90,6 +90,10 @@
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Name + Age" subtitle="" titleAlignment="automatic"/>
+                                <connections>
+                                    <action selector="NameButtonTouchUpInside:" destination="Aqc-EC-XKQ" eventType="touchUpInside" id="RXI-c2-BhN"/>
+                                    <segue destination="SHM-gj-gsi" kind="show" id="LNr-de-XX1"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="iAg-RO-LYu"/>
@@ -354,12 +358,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oLM-CT-0LI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="883" y="1860"/>
+            <point key="canvasLocation" x="1638" y="1837"/>
         </scene>
         <!--View Other Profile View Controller-->
         <scene sceneID="Awm-CB-WQQ">
             <objects>
-                <viewController id="SHM-gj-gsi" customClass="ViewOtherProfileViewController" customModule="PetMeet" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="SHM-gj-gsi" customClass="ViewOtherProfileViewController" customModule="PetMeet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6Hn-sb-ZJc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -592,11 +596,12 @@
                             <constraint firstItem="LG6-f6-opP" firstAttribute="trailing" secondItem="xBh-Rg-7dh" secondAttribute="trailing" id="mH6-bg-Slp"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="naH-Fg-Dd5"/>
                     <size key="freeformSize" width="414" height="1000"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z2s-eI-KJa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-688.40579710144937" y="2157.5892857142858"/>
+            <point key="canvasLocation" x="884" y="1857"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0Lg-Db-JTx">
