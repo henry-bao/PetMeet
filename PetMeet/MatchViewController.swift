@@ -10,7 +10,7 @@ import Firebase
 import FirebaseAuth
 
 class MatchViewController: UIViewController {
-    @IBOutlet weak var nameAndAgeLabel: UILabel!
+    @IBOutlet weak var nameAndAgeButton: UIButton!
     @IBOutlet weak var breedLabel: UILabel!
     @IBOutlet weak var genderLabel: UILabel!
     @IBOutlet weak var likeButton: UIButton!
@@ -31,7 +31,7 @@ class MatchViewController: UIViewController {
         
         getData()
         getPetNum()
-        nameAndAgeLabel.text = "\(petname) \(petage)"
+        nameAndAgeButton.setTitle("\(petname) \(petage)", for: .normal)
         breedLabel.text = breed
         genderLabel.text = gender
     }
@@ -78,7 +78,7 @@ class MatchViewController: UIViewController {
         // switch to next pet
         self.petIndex += 1
 
-        if self.petIndex ==  self.petNum {
+        if self.petIndex ==  self.petNum - 1 {
             self.petIndex = 1
         }
         getData()
@@ -105,7 +105,7 @@ class MatchViewController: UIViewController {
                         self.petage = docuData["age"] as! String
                         self.breed = docuData["breed"] as! String
                         self.gender = docuData["gender"] as! String
-                        self.nameAndAgeLabel.text = "\(self.petname)  \(self.petage) yrs"
+                        self.nameAndAgeButton.setTitle("\(self.petname) \(self.petage)", for: .normal)
                         self.breedLabel.text = self.breed
                         self.genderLabel.text = self.gender
                     }
