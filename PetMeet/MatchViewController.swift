@@ -25,7 +25,7 @@ class MatchViewController: UIViewController {
     var petimg = ""
     var userID: [String] = []
     var petID: [String] = []
-    var petIndex = 1
+    var petIndex = 0
     var petNum = 0
     
     private let fStorage = Storage.storage().reference()
@@ -63,12 +63,15 @@ class MatchViewController: UIViewController {
     
     @IBAction func likeButtonTouchUpInside(_ sender: Any) {
         // switch to next pet
-        petIndex += 1
+        self.petIndex += 1
         
-        if self.petIndex ==  self.petNum {
-            self.petIndex = 1
+        if self.petIndex >=  self.petNum - 1 {
+            let alert = UIAlertController(title: "My Alert", message: "This is an alert.", preferredStyle: .alert)
+                     alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in }))
+                     self.present(alert, animated: true, completion: { NSLog("The completion handler fired") })
+        } else {
+            getData()
         }
-        getData()
         
         // write firebase data
         let db = Firestore.firestore()
@@ -87,11 +90,14 @@ class MatchViewController: UIViewController {
     @IBAction func dislikeButtonTouchUpInside(_ sender: Any) {
         // switch to next pet
         self.petIndex += 1
-
-        if self.petIndex ==  self.petNum - 1 {
-            self.petIndex = 1
+        
+        if self.petIndex >=  self.petNum - 1 {
+            let alert = UIAlertController(title: "You have viewed all the pets.", message: "See what you liked in the Like List!", preferredStyle: .alert)
+                     alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in }))
+                     self.present(alert, animated: true, completion: { NSLog("The completion handler fired") })
+        } else {
+            getData()
         }
-        getData()
     }
     
     func getData() {
