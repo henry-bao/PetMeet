@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
 
 class MatchViewController: UIViewController {
     @IBOutlet weak var nameAndAgeLabel: UILabel!
@@ -22,14 +23,65 @@ class MatchViewController: UIViewController {
     var gender = ""
     var petimg = ""
     var userID: [String] = []
+    var petIndex = 1
+    var petNum = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         getData()
+        getPetNum()
         nameAndAgeLabel.text = "\(petname) \(petage)"
         breedLabel.text = breed
         genderLabel.text = gender
+    }
+    
+    func getPetNum() {
+        let db = Firestore.firestore()
+        self.petNum = 0
+        
+        db.collection("users").getDocuments { (snapshot, error) in
+            if error == nil && snapshot != nil {
+                // go through all users
+                for i in 0...snapshot!.documents.count-1 {
+                    // go through all pets
+                    db.collection("users").document(self.userID[i]).collection("pets").getDocuments { (snapshot, error) in
+                        if error == nil && snapshot != nil {
+                            self.petNum += 1
+                        }
+                        //print(self.petNum)
+                    }
+                }
+                //print("*****\(self.petNum)")
+            }
+        }
+    }
+    
+    @IBAction func likeButtonTouchUpInside(_ sender: Any) {
+        // switch to next pet
+        petIndex += 1
+        
+        if self.petIndex ==  self.petNum {
+            self.petIndex = 1
+        }
+        getData()
+        
+        // write firebase data
+        let db = Firestore.firestore()
+        let currentUserID = Auth.auth().currentUser!.uid
+        let petID = ["xphVR8umHxZPyWjtM47C"]
+        
+        db.collection("users").document(currentUserID).updateData(["like list": petID])
+    }
+
+    @IBAction func dislikeButtonTouchUpInside(_ sender: Any) {
+        // switch to next pet
+        self.petIndex += 1
+
+        if self.petIndex ==  self.petNum {
+            self.petIndex = 1
+        }
+        getData()
     }
     
     func getData() {
@@ -45,7 +97,7 @@ class MatchViewController: UIViewController {
                 }
                 
                 // fetch pet info
-                db.collection("users").document(self.userID[0]).collection("pets").getDocuments { (snapshot, error) in
+                db.collection("users").document(self.userID[self.petIndex]).collection("pets").getDocuments { (snapshot, error) in
                     if error == nil && snapshot != nil {
                         let document = snapshot!.documents[0]
                         let docuData = document.data()
@@ -60,7 +112,7 @@ class MatchViewController: UIViewController {
                 }
                 
                 // fetch image
-                guard let urlString = UserDefaults.standard.value(forKey: "\(self.userID[0])") as? String, let url = URL(string: urlString)
+                guard let urlString = UserDefaults.standard.value(forKey: "\(self.userID[self.petIndex])") as? String, let url = URL(string: urlString)
                     else {
                             return
                     }

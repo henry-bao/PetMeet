@@ -62,6 +62,9 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="like" buttonSize="medium"/>
+                                <connections>
+                                    <action selector="likeButtonTouchUpInside:" destination="Aqc-EC-XKQ" eventType="touchUpInside" id="2me-rv-QHJ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dGf-Mf-X8L">
                                 <rect key="frame" x="320" y="743" width="74" height="50"/>
@@ -71,6 +74,9 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="dislike"/>
+                                <connections>
+                                    <action selector="dislikeButtonTouchUpInside:" destination="Aqc-EC-XKQ" eventType="touchUpInside" id="Csr-UE-j2a"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   PetMeet" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wHJ-sX-ZBU">
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
