@@ -133,32 +133,17 @@ class MatchViewController: UIViewController {
                 }
                 
                 // fetch image
-//                guard let urlString = UserDefaults.standard.value(forKey: "\(self.userID[self.petIndex])") as? String, let url = URL(string: urlString)
-//                    else {
-//                            return
-//                    }
-//
-//                URLSession.shared.dataTask(with: url, completionHandler: { data, _, error in
-//                    guard let data = data, error == nil else {
-//                        return
-//                    }
-//
-//                    DispatchQueue.main.async {
-//                        let image = UIImage(data: data)
-//                        self.petPhotoImage.image = image
-//                    }
-//                }).resume()
-                
                 let islandRef = self.fStorage.child("images/\(self.userID[self.petIndex]).png")
                 islandRef.getData(maxSize: 3 * 1024 * 1024) { data, error in
-                    if let error = error {
-                        print(error)
-                        } else {
-                            DispatchQueue.main.async {
-                            let image = UIImage(data: data!)
-                            self.petPhotoImage.image = image
-                        }
-                    }
+
+                  if let error = error {
+                    print(error)
+                  } else {
+                      DispatchQueue.main.async {
+                          let image = UIImage(data: data!)
+                          self.petPhotoImage.image = image
+                      }
+                  }
                 }
             }
         }
