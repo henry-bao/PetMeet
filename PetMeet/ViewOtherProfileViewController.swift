@@ -17,15 +17,30 @@ class ViewOtherProfileViewController: UIViewController {
     private var db = Firestore.firestore()
     private let fStorage = Storage.storage().reference()
     
+    @IBOutlet weak var userName: UILabel!
+    @IBOutlet weak var userEmail: UILabel!
+    @IBOutlet weak var userLocation: UILabel!
+    
+   
+    @IBOutlet weak var petName: UILabel!
+    @IBOutlet weak var petImage: UIImageView!
+    @IBOutlet weak var petAge: UILabel!
+    @IBOutlet weak var petBreed: UILabel!
+    @IBOutlet weak var petCategory: UILabel!
+    @IBOutlet weak var petGender: UILabel!
+    
+    var firstName = ""
+    var lastName = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        fetchPetInfo()
-//        fetchUserInfo()
+        fetchPetInfo()
+        fetchUserInfo()
+        
         // Do any additional setup after loading the view.
     }
    
-    /*
+    
     func fetchUserInfo() {
             self.db.collection("users").document(userID).getDocument{ (document, error) in
                 if error == nil {
@@ -34,10 +49,13 @@ class ViewOtherProfileViewController: UIViewController {
                         let documentData = document!.data()
                         self.firstName = documentData!["first name"] as! String
                         self.lastName = documentData!["last name"] as! String
+                        self.userEmail.text = documentData!["email"] as! String
                         //self.zipCode = documentData!["zip code"] as! String
                         self.userLocation.text = documentData!["zip code"] as! String //可以这么写吗？二选1？
     //                            print("\(firstName!), \(lastName!), \(email!), \(userID!)")
                         //self.hasAccount(firstName: firstName!, lastName: lastName!, email: email!, uid: userID!, zipCode: zipCode)
+                        print(self.userLocation.text)
+                        self.userName.text = ("\(self.firstName), \(self.lastName)")
                     }
                 }
             }
@@ -50,7 +68,7 @@ class ViewOtherProfileViewController: UIViewController {
                     let document = snapshot!.documents[0]
                     let docuData = document.data()
                    // self.getPetName = docuData["name"] as! String
-                    self.getPetName = docuData["name"] as! String
+                    self.petName.text = docuData["name"] as! String
                     //self.getPetAge = docuData["age"] as! String
                     self.petAge.text = docuData["age"] as! String
                     //self.getPetCategory = docuData["category"] as! String
@@ -64,7 +82,7 @@ class ViewOtherProfileViewController: UIViewController {
                 }
             }
         }
-    */
+
     
 //    guard let urlString = UserDefaults.standard.value(forKey: "\(self.userID)") as? String, let url = URL(string: urlString) else {
 //                return

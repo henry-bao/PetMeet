@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="U86-ey-OGI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="SHM-gj-gsi">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -120,7 +120,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i8t-hB-Hin" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="882.60869565217399" y="1120.9821428571429"/>
+            <point key="canvasLocation" x="883" y="1172"/>
         </scene>
         <!--Item-->
         <scene sceneID="MMQ-YS-2bI">
@@ -344,7 +344,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oLM-CT-0LI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="883" y="1860"/>
+            <point key="canvasLocation" x="883" y="2123"/>
         </scene>
         <!--View Other Profile View Controller-->
         <scene sceneID="Awm-CB-WQQ">
@@ -583,6 +583,17 @@
                         </constraints>
                     </view>
                     <size key="freeformSize" width="414" height="1000"/>
+                    <connections>
+                        <outlet property="petAge" destination="iSD-8J-rJz" id="qZZ-Ia-CsO"/>
+                        <outlet property="petBreed" destination="Adt-No-bfL" id="hj1-6I-X5g"/>
+                        <outlet property="petCategory" destination="uHi-l4-Sj2" id="bdR-Jt-GSP"/>
+                        <outlet property="petGender" destination="gAL-ZJ-tVX" id="bcO-wx-cQR"/>
+                        <outlet property="petImage" destination="6v4-eJ-qs3" id="ZPF-hf-H9Z"/>
+                        <outlet property="petName" destination="FSA-MV-LDC" id="ZMO-u7-miM"/>
+                        <outlet property="userEmail" destination="CBr-z2-At4" id="sHv-xE-WNX"/>
+                        <outlet property="userLocation" destination="fFU-zS-Fdr" id="ftJ-nV-zw5"/>
+                        <outlet property="userName" destination="mQy-fd-B7T" id="6Vo-NM-KX5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z2s-eI-KJa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
