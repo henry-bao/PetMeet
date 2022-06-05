@@ -33,12 +33,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name+Age" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Drc-zj-aTh">
-                                <rect key="frame" x="40" y="695" width="107.5" height="26.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8e7-co-8lZ">
+                                <rect key="frame" x="0.0" y="88" width="414" height="575"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Breed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UX7-Ya-ZMG">
                                 <rect key="frame" x="40" y="736.5" width="46" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -52,22 +49,28 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wpe-LZ-flZ">
-                                <rect key="frame" x="320" y="663" width="74" height="50"/>
+                                <rect key="frame" x="316" y="663" width="78" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="LoV-4B-yuW"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="YL0-bI-uo3"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="like" buttonSize="medium"/>
+                                <buttonConfiguration key="configuration" style="plain" image="like" title=" " buttonSize="medium"/>
+                                <connections>
+                                    <action selector="likeButtonTouchUpInside:" destination="Aqc-EC-XKQ" eventType="touchUpInside" id="2me-rv-QHJ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dGf-Mf-X8L">
-                                <rect key="frame" x="320" y="743" width="74" height="50"/>
+                                <rect key="frame" x="316" y="743" width="78" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="F7R-e4-Gdt"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="HaA-J3-imS"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="dislike"/>
+                                <buttonConfiguration key="configuration" style="plain" image="dislike" title=" "/>
+                                <connections>
+                                    <action selector="dislikeButtonTouchUpInside:" destination="Aqc-EC-XKQ" eventType="touchUpInside" id="Csr-UE-j2a"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   PetMeet" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wHJ-sX-ZBU">
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -79,9 +82,27 @@
                                 <color key="textColor" red="0.90144914389999997" green="0.39266014100000002" blue="0.39212793109999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8e7-co-8lZ">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
-                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M2C-OJ-dtH">
+                                <rect key="frame" x="28" y="688.5" width="199" height="39.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="199" id="hsa-PS-o6Y"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" subtitle="" titleAlignment="automatic">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Name + Age">
+                                            <attributes>
+                                                <font key="NSFont" size="22" name="Helvetica"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="NameButtonTouchUpInside:" destination="Aqc-EC-XKQ" eventType="touchUpInside" id="RXI-c2-BhN"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="iAg-RO-LYu"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -92,21 +113,21 @@
                             <constraint firstItem="wHJ-sX-ZBU" firstAttribute="top" secondItem="iAg-RO-LYu" secondAttribute="top" id="As3-w3-iXy"/>
                             <constraint firstItem="dt6-Cz-65a" firstAttribute="leading" secondItem="iAg-RO-LYu" secondAttribute="leading" constant="40" id="Dix-gA-dEB"/>
                             <constraint firstItem="iAg-RO-LYu" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="wHJ-sX-ZBU" secondAttribute="trailing" symbolic="YES" id="GmI-0w-KHs"/>
-                            <constraint firstItem="UX7-Ya-ZMG" firstAttribute="top" secondItem="Drc-zj-aTh" secondAttribute="bottom" constant="15" id="JcC-IA-Nme"/>
                             <constraint firstItem="iAg-RO-LYu" firstAttribute="bottom" secondItem="dt6-Cz-65a" secondAttribute="bottom" constant="20" id="MWM-ap-9es"/>
                             <constraint firstItem="iAg-RO-LYu" firstAttribute="trailing" secondItem="wHJ-sX-ZBU" secondAttribute="trailing" id="MiC-MX-52r"/>
+                            <constraint firstItem="UX7-Ya-ZMG" firstAttribute="top" secondItem="M2C-OJ-dtH" secondAttribute="bottom" constant="8.5" id="Npw-5C-WFn"/>
                             <constraint firstItem="iAg-RO-LYu" firstAttribute="trailing" secondItem="Wpe-LZ-flZ" secondAttribute="trailing" constant="20" id="OdU-GS-4rP"/>
                             <constraint firstItem="8e7-co-8lZ" firstAttribute="leading" secondItem="iAg-RO-LYu" secondAttribute="leading" id="Scf-Ey-fmt"/>
                             <constraint firstItem="dGf-Mf-X8L" firstAttribute="top" secondItem="Wpe-LZ-flZ" secondAttribute="bottom" constant="30" id="VBV-c0-g6x"/>
                             <constraint firstItem="8e7-co-8lZ" firstAttribute="top" secondItem="wHJ-sX-ZBU" secondAttribute="bottom" id="XpH-Yo-sFq"/>
-                            <constraint firstItem="Wpe-LZ-flZ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Drc-zj-aTh" secondAttribute="trailing" constant="8" symbolic="YES" id="dFO-8y-b8W"/>
                             <constraint firstItem="iAg-RO-LYu" firstAttribute="bottom" secondItem="dGf-Mf-X8L" secondAttribute="bottom" constant="20" id="i3L-iL-Lyl"/>
-                            <constraint firstItem="Drc-zj-aTh" firstAttribute="leading" secondItem="iAg-RO-LYu" secondAttribute="leading" constant="40" id="lep-vJ-GvP"/>
+                            <constraint firstItem="M2C-OJ-dtH" firstAttribute="leading" secondItem="UX7-Ya-ZMG" secondAttribute="leading" constant="-12" id="roO-6r-XOx"/>
                             <constraint firstItem="dt6-Cz-65a" firstAttribute="top" secondItem="UX7-Ya-ZMG" secondAttribute="bottom" constant="15" id="sCg-PT-V4i"/>
-                            <constraint firstItem="iAg-RO-LYu" firstAttribute="bottom" secondItem="8e7-co-8lZ" secondAttribute="bottom" id="sVr-Gb-LGq"/>
+                            <constraint firstItem="iAg-RO-LYu" firstAttribute="bottom" secondItem="8e7-co-8lZ" secondAttribute="bottom" constant="150" id="sVr-Gb-LGq"/>
                             <constraint firstItem="UX7-Ya-ZMG" firstAttribute="leading" secondItem="iAg-RO-LYu" secondAttribute="leading" constant="40" id="sZB-9A-LIE"/>
                             <constraint firstItem="dGf-Mf-X8L" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="UX7-Ya-ZMG" secondAttribute="trailing" constant="8" symbolic="YES" id="tVD-Ze-fZF"/>
                             <constraint firstItem="iAg-RO-LYu" firstAttribute="trailing" secondItem="8e7-co-8lZ" secondAttribute="trailing" id="vnR-im-hTn"/>
+                            <constraint firstItem="Wpe-LZ-flZ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="M2C-OJ-dtH" secondAttribute="trailing" constant="5" id="zBE-0r-0kg"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="find" id="nMU-ZX-oHH"/>
@@ -115,7 +136,8 @@
                         <outlet property="dislikeButton" destination="dGf-Mf-X8L" id="dJh-Zk-wAq"/>
                         <outlet property="genderLabel" destination="dt6-Cz-65a" id="I4W-pF-9fT"/>
                         <outlet property="likeButton" destination="Wpe-LZ-flZ" id="TJa-DT-YNG"/>
-                        <outlet property="nameAndAgeLabel" destination="Drc-zj-aTh" id="rdm-O3-tb9"/>
+                        <outlet property="nameAndAgeButton" destination="M2C-OJ-dtH" id="Frt-hL-Rrt"/>
+                        <outlet property="petPhotoImage" destination="8e7-co-8lZ" id="ZiA-8T-hMM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i8t-hB-Hin" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -344,12 +366,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oLM-CT-0LI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="883" y="2123"/>
+            <point key="canvasLocation" x="1638" y="1837"/>
         </scene>
         <!--View Other Profile View Controller-->
         <scene sceneID="Awm-CB-WQQ">
             <objects>
-                <viewController id="SHM-gj-gsi" customClass="ViewOtherProfileViewController" customModule="PetMeet" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="SHM-gj-gsi" customClass="ViewOtherProfileViewController" customModule="PetMeet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6Hn-sb-ZJc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -582,6 +604,7 @@
                             <constraint firstItem="LG6-f6-opP" firstAttribute="trailing" secondItem="xBh-Rg-7dh" secondAttribute="trailing" id="mH6-bg-Slp"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="naH-Fg-Dd5"/>
                     <size key="freeformSize" width="414" height="1000"/>
                     <connections>
                         <outlet property="petAge" destination="iSD-8J-rJz" id="qZZ-Ia-CsO"/>
@@ -597,7 +620,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z2s-eI-KJa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-688.40579710144937" y="2157.5892857142858"/>
+            <point key="canvasLocation" x="884" y="1857"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0Lg-Db-JTx">
@@ -715,7 +738,7 @@
                                                     <action selector="uploadPetPhoto:" destination="5Se-KA-6eM" eventType="touchUpInside" id="VbC-sf-G0Y"/>
                                                 </connections>
                                             </button>
-                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uHV-pP-naF">
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="uHV-pP-naF">
                                                 <rect key="frame" x="20" y="837.5" width="374" height="250"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="AFN-U1-kmO">
@@ -754,32 +777,32 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="sUw-gM-dJK">
-                                                        <rect key="frame" x="70.5" y="0.0" width="303.5" height="250"/>
+                                                        <rect key="frame" x="90.5" y="0.0" width="283.5" height="250"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Name!" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OyS-Xb-VJP">
-                                                                <rect key="frame" x="0.0" y="0.0" width="303.5" height="34"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="283.5" height="34"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="e.g. 5" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="piT-Jl-Tdh">
-                                                                <rect key="frame" x="0.0" y="54" width="303.5" height="34"/>
+                                                                <rect key="frame" x="0.0" y="54" width="283.5" height="34"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
                                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="mZR-3J-Ab3">
-                                                                <rect key="frame" x="0.0" y="108" width="303.5" height="35"/>
+                                                                <rect key="frame" x="0.0" y="108" width="283.5" height="35"/>
                                                                 <segments>
                                                                     <segment title="Cat"/>
                                                                     <segment title="Dog"/>
                                                                 </segments>
                                                             </segmentedControl>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select a Breed" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="geN-MO-nBP">
-                                                                <rect key="frame" x="0.0" y="162" width="303.5" height="34"/>
+                                                                <rect key="frame" x="0.0" y="162" width="283.5" height="34"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
                                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Q8I-Hq-fUa">
-                                                                <rect key="frame" x="0.0" y="216" width="303.5" height="35"/>
+                                                                <rect key="frame" x="0.0" y="216" width="283.5" height="35"/>
                                                                 <segments>
                                                                     <segment title="Female"/>
                                                                     <segment title="Male"/>
