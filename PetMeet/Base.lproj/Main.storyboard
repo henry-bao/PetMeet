@@ -25,7 +25,7 @@
             </objects>
             <point key="canvasLocation" x="939.13043478260875" y="63.616071428571423"/>
         </scene>
-        <!--Match View Controller-->
+        <!--match-->
         <scene sceneID="8sZ-zG-oe5">
             <objects>
                 <viewController id="Aqc-EC-XKQ" customClass="MatchViewController" customModule="PetMeet" customModuleProvider="target" sceneMemberID="viewController">
@@ -72,16 +72,6 @@
                                     <action selector="dislikeButtonTouchUpInside:" destination="Aqc-EC-XKQ" eventType="touchUpInside" id="Csr-UE-j2a"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   PetMeet" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wHJ-sX-ZBU">
-                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                                <color key="backgroundColor" red="1" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="WLr-PH-wke"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
-                                <color key="textColor" red="0.90144914389999997" green="0.39266014100000002" blue="0.39212793109999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M2C-OJ-dtH">
                                 <rect key="frame" x="28" y="688.5" width="199" height="39.5"/>
                                 <constraints>
@@ -103,24 +93,36 @@
                                     <action selector="NameButtonTouchUpInside:" destination="Aqc-EC-XKQ" eventType="touchUpInside" id="RXI-c2-BhN"/>
                                 </connections>
                             </button>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kSE-6i-xEd">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <color key="backgroundColor" red="0.97254908080000002" green="0.84705877299999999" blue="0.8392156959" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <items>
+                                    <barButtonItem title="PetMeet" id="Jkd-Jw-nil">
+                                        <color key="tintColor" red="0.91976243260000001" green="0.36069523809999998" blue="0.3439754706" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </barButtonItem>
+                                    <barButtonItem systemItem="flexibleSpace" id="wAk-lJ-HeV">
+                                        <color key="tintColor" red="0.91976243260000001" green="0.36069523809999998" blue="0.3439754706" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </barButtonItem>
+                                </items>
+                                <color key="barTintColor" red="0.97254908080000002" green="0.84705877299999999" blue="0.8392156959" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </toolbar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="iAg-RO-LYu"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="1" green="0.94508951900000004" blue="0.97252899410000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="dGf-Mf-X8L" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="dt6-Cz-65a" secondAttribute="trailing" constant="8" symbolic="YES" id="1wt-hT-Ku7"/>
-                            <constraint firstItem="wHJ-sX-ZBU" firstAttribute="leading" secondItem="iAg-RO-LYu" secondAttribute="leading" id="8Ks-UA-DvV"/>
                             <constraint firstItem="iAg-RO-LYu" firstAttribute="trailing" secondItem="dGf-Mf-X8L" secondAttribute="trailing" constant="20" id="A62-aE-9gn"/>
-                            <constraint firstItem="wHJ-sX-ZBU" firstAttribute="top" secondItem="iAg-RO-LYu" secondAttribute="top" id="As3-w3-iXy"/>
+                            <constraint firstItem="kSE-6i-xEd" firstAttribute="leading" secondItem="iAg-RO-LYu" secondAttribute="leading" id="ASv-nB-ahZ"/>
                             <constraint firstItem="dt6-Cz-65a" firstAttribute="leading" secondItem="iAg-RO-LYu" secondAttribute="leading" constant="40" id="Dix-gA-dEB"/>
-                            <constraint firstItem="iAg-RO-LYu" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="wHJ-sX-ZBU" secondAttribute="trailing" symbolic="YES" id="GmI-0w-KHs"/>
+                            <constraint firstItem="iAg-RO-LYu" firstAttribute="trailing" secondItem="kSE-6i-xEd" secondAttribute="trailing" id="MAc-vb-mPr"/>
                             <constraint firstItem="iAg-RO-LYu" firstAttribute="bottom" secondItem="dt6-Cz-65a" secondAttribute="bottom" constant="20" id="MWM-ap-9es"/>
-                            <constraint firstItem="iAg-RO-LYu" firstAttribute="trailing" secondItem="wHJ-sX-ZBU" secondAttribute="trailing" id="MiC-MX-52r"/>
                             <constraint firstItem="UX7-Ya-ZMG" firstAttribute="top" secondItem="M2C-OJ-dtH" secondAttribute="bottom" constant="8.5" id="Npw-5C-WFn"/>
                             <constraint firstItem="iAg-RO-LYu" firstAttribute="trailing" secondItem="Wpe-LZ-flZ" secondAttribute="trailing" constant="20" id="OdU-GS-4rP"/>
                             <constraint firstItem="8e7-co-8lZ" firstAttribute="leading" secondItem="iAg-RO-LYu" secondAttribute="leading" id="Scf-Ey-fmt"/>
+                            <constraint firstItem="kSE-6i-xEd" firstAttribute="top" secondItem="iAg-RO-LYu" secondAttribute="top" id="TSX-9I-fcZ"/>
                             <constraint firstItem="dGf-Mf-X8L" firstAttribute="top" secondItem="Wpe-LZ-flZ" secondAttribute="bottom" constant="30" id="VBV-c0-g6x"/>
-                            <constraint firstItem="8e7-co-8lZ" firstAttribute="top" secondItem="wHJ-sX-ZBU" secondAttribute="bottom" id="XpH-Yo-sFq"/>
                             <constraint firstItem="iAg-RO-LYu" firstAttribute="bottom" secondItem="dGf-Mf-X8L" secondAttribute="bottom" constant="20" id="i3L-iL-Lyl"/>
+                            <constraint firstItem="8e7-co-8lZ" firstAttribute="top" secondItem="kSE-6i-xEd" secondAttribute="bottom" id="re2-PF-RzZ"/>
                             <constraint firstItem="M2C-OJ-dtH" firstAttribute="leading" secondItem="UX7-Ya-ZMG" secondAttribute="leading" constant="-12" id="roO-6r-XOx"/>
                             <constraint firstItem="dt6-Cz-65a" firstAttribute="top" secondItem="UX7-Ya-ZMG" secondAttribute="bottom" constant="15" id="sCg-PT-V4i"/>
                             <constraint firstItem="iAg-RO-LYu" firstAttribute="bottom" secondItem="8e7-co-8lZ" secondAttribute="bottom" constant="150" id="sVr-Gb-LGq"/>
@@ -130,7 +132,7 @@
                             <constraint firstItem="Wpe-LZ-flZ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="M2C-OJ-dtH" secondAttribute="trailing" constant="5" id="zBE-0r-0kg"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="find" id="nMU-ZX-oHH"/>
+                    <tabBarItem key="tabBarItem" title="match" image="find" id="nMU-ZX-oHH"/>
                     <connections>
                         <outlet property="breedLabel" destination="UX7-Ya-ZMG" id="C06-js-gmO"/>
                         <outlet property="dislikeButton" destination="dGf-Mf-X8L" id="dJh-Zk-wAq"/>
@@ -144,7 +146,7 @@
             </objects>
             <point key="canvasLocation" x="882.60869565217399" y="1120.9821428571429"/>
         </scene>
-        <!--Item-->
+        <!--likes-->
         <scene sceneID="MMQ-YS-2bI">
             <objects>
                 <viewController id="ghj-61-zg4" customClass="LikeListViewController" customModule="PetMeet" customModuleProvider="target" sceneMemberID="viewController">
@@ -153,7 +155,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="0j1-xH-Zin">
-                                <rect key="frame" x="20" y="162" width="374" height="638"/>
+                                <rect key="frame" x="20" y="162" width="374" height="651"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="81" id="7gQ-UC-vJs">
@@ -193,16 +195,6 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   Petmeet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e6a-g3-O3d">
-                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                                <color key="backgroundColor" red="1" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="H8S-LT-r5N"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="0.46536349110000003" blue="0.47593198590000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="1Hy-Ta-8TP">
                                 <rect key="frame" x="20" y="112" width="374" height="31"/>
                                 <constraints>
@@ -213,23 +205,36 @@
                                     <segment title="Who Liked Me?"/>
                                 </segments>
                             </segmentedControl>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nR1-yq-dV6">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <color key="backgroundColor" red="0.97254908080000002" green="0.84705877299999999" blue="0.8392156959" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <items>
+                                    <barButtonItem title="PetMeet" id="RBb-3C-IYK">
+                                        <color key="tintColor" red="0.91976243260000001" green="0.36069523809999998" blue="0.3439754706" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </barButtonItem>
+                                    <barButtonItem systemItem="flexibleSpace" id="MK3-ar-hhf">
+                                        <color key="tintColor" red="0.91976243260000001" green="0.36069523809999998" blue="0.3439754706" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </barButtonItem>
+                                </items>
+                                <color key="barTintColor" red="0.97254908080000002" green="0.84705877299999999" blue="0.8392156959" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </toolbar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="EXb-l6-jGd"/>
                         <color key="backgroundColor" red="1" green="0.94508951900000004" blue="0.97252899410000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="EXb-l6-jGd" firstAttribute="trailing" secondItem="nR1-yq-dV6" secondAttribute="trailing" id="1gF-cT-8Ej"/>
+                            <constraint firstItem="1Hy-Ta-8TP" firstAttribute="top" secondItem="nR1-yq-dV6" secondAttribute="bottom" constant="24" id="3K4-JR-9JI"/>
                             <constraint firstItem="0j1-xH-Zin" firstAttribute="leading" secondItem="EXb-l6-jGd" secondAttribute="leading" constant="20" id="4eA-ca-d9f"/>
-                            <constraint firstItem="EXb-l6-jGd" firstAttribute="trailing" secondItem="e6a-g3-O3d" secondAttribute="trailing" id="5b7-Sj-WDS"/>
                             <constraint firstItem="EXb-l6-jGd" firstAttribute="trailing" secondItem="0j1-xH-Zin" secondAttribute="trailing" constant="20" id="KVs-OH-QtY"/>
-                            <constraint firstItem="1Hy-Ta-8TP" firstAttribute="top" secondItem="e6a-g3-O3d" secondAttribute="bottom" constant="24" id="RHs-R9-pnJ"/>
-                            <constraint firstItem="e6a-g3-O3d" firstAttribute="leading" secondItem="EXb-l6-jGd" secondAttribute="leading" id="Um3-b2-zDC"/>
+                            <constraint firstItem="nR1-yq-dV6" firstAttribute="leading" secondItem="EXb-l6-jGd" secondAttribute="leading" id="T8z-hf-JhO"/>
+                            <constraint firstItem="nR1-yq-dV6" firstAttribute="top" secondItem="EXb-l6-jGd" secondAttribute="top" id="g9g-zz-QZZ"/>
                             <constraint firstItem="1Hy-Ta-8TP" firstAttribute="leading" secondItem="EXb-l6-jGd" secondAttribute="leading" constant="20" id="h1W-Xp-lfY"/>
-                            <constraint firstItem="EXb-l6-jGd" firstAttribute="bottom" secondItem="0j1-xH-Zin" secondAttribute="bottom" constant="13" id="hIG-NF-Ff0"/>
-                            <constraint firstItem="e6a-g3-O3d" firstAttribute="top" secondItem="EXb-l6-jGd" secondAttribute="top" id="kYo-0l-dEy"/>
+                            <constraint firstItem="EXb-l6-jGd" firstAttribute="bottom" secondItem="0j1-xH-Zin" secondAttribute="bottom" id="hIG-NF-Ff0"/>
                             <constraint firstItem="0j1-xH-Zin" firstAttribute="top" secondItem="1Hy-Ta-8TP" secondAttribute="bottom" constant="20" id="mbN-FQ-9YK"/>
                             <constraint firstItem="EXb-l6-jGd" firstAttribute="trailing" secondItem="1Hy-Ta-8TP" secondAttribute="trailing" constant="20" id="w5E-p4-Uhu"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="FfM-YK-dxu"/>
+                    <tabBarItem key="tabBarItem" title="likes" image="likeList" id="FfM-YK-dxu"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oke-x0-STj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -242,8 +247,9 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="gVF-9W-Sdl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="1" green="0.94508951900000004" blue="0.97252899410000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" red="1" green="0.46536349110000003" blue="0.47593198590000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="ghj-61-zg4" kind="relationship" relationship="viewControllers" id="9a6-tx-4MC"/>
@@ -382,16 +388,19 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ppu-Bg-ALC">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   PetMeet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ac6-Ml-fEu">
+                                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w1q-oI-04K">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                                                <color key="backgroundColor" red="1" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="44" id="MzA-a7-iLy"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="1" green="0.46536349110000003" blue="0.47593198590000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                                <color key="backgroundColor" red="0.97254908080000002" green="0.84705877299999999" blue="0.8392156959" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <items>
+                                                    <barButtonItem title="PetMeet" id="C1z-XI-bLS">
+                                                        <color key="tintColor" red="0.91976243260000001" green="0.36069523809999998" blue="0.3439754706" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    </barButtonItem>
+                                                    <barButtonItem systemItem="flexibleSpace" id="8XG-i6-elw">
+                                                        <color key="tintColor" red="0.91976243260000001" green="0.36069523809999998" blue="0.3439754706" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    </barButtonItem>
+                                                </items>
+                                                <color key="barTintColor" red="0.97254908080000002" green="0.84705877299999999" blue="0.8392156959" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </toolbar>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nyJ-lH-LDz">
                                                 <rect key="frame" x="8" y="59" width="56" height="30"/>
                                                 <constraints>
@@ -562,17 +571,18 @@
                                             <constraint firstItem="nZg-u9-Wbv" firstAttribute="leading" secondItem="ppu-Bg-ALC" secondAttribute="leading" constant="40" id="26m-Ht-Auy"/>
                                             <constraint firstItem="6v4-eJ-qs3" firstAttribute="top" secondItem="VVD-k5-ZEI" secondAttribute="bottom" constant="20" id="4S4-d1-rRM"/>
                                             <constraint firstItem="mQy-fd-B7T" firstAttribute="top" secondItem="Txs-hr-IGB" secondAttribute="bottom" constant="20" id="4v1-Uv-ZbX"/>
+                                            <constraint firstItem="w1q-oI-04K" firstAttribute="leading" secondItem="ppu-Bg-ALC" secondAttribute="leading" id="5U9-li-mfG"/>
                                             <constraint firstItem="Txs-hr-IGB" firstAttribute="centerX" secondItem="ppu-Bg-ALC" secondAttribute="centerX" id="A4Q-ly-XBc"/>
                                             <constraint firstItem="FSA-MV-LDC" firstAttribute="top" secondItem="6v4-eJ-qs3" secondAttribute="bottom" constant="20" id="Af1-h2-s5X"/>
                                             <constraint firstItem="Txs-hr-IGB" firstAttribute="top" secondItem="nyJ-lH-LDz" secondAttribute="bottom" constant="30" id="AjE-0v-eLn"/>
                                             <constraint firstAttribute="trailing" secondItem="nZg-u9-Wbv" secondAttribute="trailing" constant="40" id="C0D-Yq-T4p"/>
                                             <constraint firstAttribute="trailing" secondItem="z0s-EU-OfB" secondAttribute="trailing" constant="40" id="KI1-f6-aCF"/>
-                                            <constraint firstAttribute="trailing" secondItem="ac6-Ml-fEu" secondAttribute="trailing" id="Opd-s7-Bjm"/>
                                             <constraint firstItem="wsS-hT-dEq" firstAttribute="leading" secondItem="ppu-Bg-ALC" secondAttribute="leading" constant="20" id="Pzu-VV-I3p"/>
                                             <constraint firstItem="FSA-MV-LDC" firstAttribute="centerX" secondItem="ppu-Bg-ALC" secondAttribute="centerX" id="ROm-65-RYY"/>
                                             <constraint firstItem="z0s-EU-OfB" firstAttribute="top" secondItem="FSA-MV-LDC" secondAttribute="bottom" constant="20" id="W4k-0g-FF9"/>
                                             <constraint firstItem="z0s-EU-OfB" firstAttribute="leading" secondItem="ppu-Bg-ALC" secondAttribute="leading" constant="40" id="Zi2-sd-nnu"/>
                                             <constraint firstItem="6v4-eJ-qs3" firstAttribute="centerX" secondItem="ppu-Bg-ALC" secondAttribute="centerX" id="aH4-D1-LKk"/>
+                                            <constraint firstAttribute="trailing" secondItem="w1q-oI-04K" secondAttribute="trailing" id="dTt-jf-f5W"/>
                                             <constraint firstItem="VVD-k5-ZEI" firstAttribute="top" secondItem="nZg-u9-Wbv" secondAttribute="bottom" constant="50" id="dXi-96-aGy"/>
                                             <constraint firstItem="mQy-fd-B7T" firstAttribute="centerX" secondItem="ppu-Bg-ALC" secondAttribute="centerX" id="hb1-Nx-28G"/>
                                             <constraint firstItem="nyJ-lH-LDz" firstAttribute="top" secondItem="ppu-Bg-ALC" secondAttribute="top" constant="59" id="ieB-rb-LOR"/>
@@ -581,7 +591,6 @@
                                             <constraint firstAttribute="height" constant="1000" id="vMY-lk-ixD"/>
                                             <constraint firstItem="nyJ-lH-LDz" firstAttribute="leading" secondItem="ppu-Bg-ALC" secondAttribute="leading" constant="8" id="yTK-vL-EeK"/>
                                             <constraint firstItem="wsS-hT-dEq" firstAttribute="top" secondItem="mQy-fd-B7T" secondAttribute="bottom" constant="20" id="ykH-ml-mUv"/>
-                                            <constraint firstItem="ac6-Ml-fEu" firstAttribute="leading" secondItem="ppu-Bg-ALC" secondAttribute="leading" id="zyx-KA-2Vc"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -597,7 +606,7 @@
                         <color key="backgroundColor" red="1" green="0.94508951900000004" blue="0.97252899410000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="LG6-f6-opP" firstAttribute="top" secondItem="xBh-Rg-7dh" secondAttribute="top" id="1yP-at-vVk"/>
-                            <constraint firstItem="ac6-Ml-fEu" firstAttribute="top" secondItem="xBh-Rg-7dh" secondAttribute="top" id="IEv-DP-7FT"/>
+                            <constraint firstItem="w1q-oI-04K" firstAttribute="top" secondItem="xBh-Rg-7dh" secondAttribute="top" id="Bwy-Vp-Ue1"/>
                             <constraint firstItem="LG6-f6-opP" firstAttribute="leading" secondItem="xBh-Rg-7dh" secondAttribute="leading" id="Pj7-sr-lxV"/>
                             <constraint firstAttribute="bottom" secondItem="LG6-f6-opP" secondAttribute="bottom" id="Wfp-eN-UvG"/>
                             <constraint firstItem="ppu-Bg-ALC" firstAttribute="width" secondItem="6Hn-sb-ZJc" secondAttribute="width" id="Y2e-Ww-m0b"/>
@@ -611,10 +620,10 @@
             </objects>
             <point key="canvasLocation" x="884" y="1857"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Main Navigation Controller-->
         <scene sceneID="0Lg-Db-JTx">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="U86-ey-OGI" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="U86-ey-OGI" customClass="MainNavigationController" customModule="PetMeet" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="CHn-5B-Xk0">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -629,7 +638,7 @@
             </objects>
             <point key="canvasLocation" x="28.985507246376812" y="63.616071428571423"/>
         </scene>
-        <!--Item-->
+        <!--profile-->
         <scene sceneID="Q51-3E-JJu">
             <objects>
                 <viewController id="5Se-KA-6eM" customClass="MyProfileViewController" customModule="PetMeet" customModuleProvider="target" sceneMemberID="viewController">
@@ -855,7 +864,7 @@
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="e3D-Wm-MBI"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="1" green="0.94508951900000004" blue="0.97252899410000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="MDb-VK-QUd" firstAttribute="top" secondItem="e3D-Wm-MBI" secondAttribute="top" id="3Ic-yD-Wf1"/>
                             <constraint firstAttribute="bottom" secondItem="iTK-qM-0BM" secondAttribute="bottom" id="AMz-w0-uOU"/>
@@ -867,7 +876,7 @@
                             <constraint firstItem="e3D-Wm-MBI" firstAttribute="trailing" secondItem="MDb-VK-QUd" secondAttribute="trailing" id="sqm-wC-cNo"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="JzT-hC-ibc"/>
+                    <tabBarItem key="tabBarItem" title="profile" image="profile" id="JzT-hC-ibc"/>
                     <size key="freeformSize" width="414" height="1200"/>
                     <connections>
                         <outlet property="appNameToolbar" destination="TIN-Ef-VXY" id="IFP-Ux-TOg"/>
@@ -892,9 +901,11 @@
     </scenes>
     <resources>
         <image name="dislike" width="50" height="50"/>
-        <image name="find" width="49" height="49"/>
+        <image name="find" width="32" height="32"/>
         <image name="like" width="50" height="50"/>
+        <image name="likeList" width="32" height="32"/>
         <image name="placeholder" width="512" height="512"/>
+        <image name="profile" width="32" height="32"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
