@@ -10,6 +10,7 @@
 		790B92F628408218002B6A92 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790B92F528408218002B6A92 /* ProfileTableViewCell.swift */; };
 		79B1937E283DBE050055AAB7 /* BreedSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B1937D283DBE050055AAB7 /* BreedSelectViewController.swift */; };
 		79B19380283DBEB60055AAB7 /* CategorySelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B1937F283DBEB60055AAB7 /* CategorySelectViewController.swift */; };
+		79B65D4A284C29DA00AC0226 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B65D49284C29DA00AC0226 /* MainNavigationController.swift */; };
 		BA8D857E283D807C004CBC16 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8D857D283D807C004CBC16 /* AppDelegate.swift */; };
 		BA8D8580283D807C004CBC16 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8D857F283D807C004CBC16 /* SceneDelegate.swift */; };
 		BA8D8582283D807C004CBC16 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8D8581283D807C004CBC16 /* ViewController.swift */; };
@@ -31,6 +32,7 @@
 		790B92F528408218002B6A92 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		79B1937D283DBE050055AAB7 /* BreedSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedSelectViewController.swift; sourceTree = "<group>"; };
 		79B1937F283DBEB60055AAB7 /* CategorySelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySelectViewController.swift; sourceTree = "<group>"; };
+		79B65D49284C29DA00AC0226 /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		BA8D857A283D807C004CBC16 /* PetMeet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetMeet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA8D857D283D807C004CBC16 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA8D857F283D807C004CBC16 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 				BAD28A41283DA8C9009F6113 /* ViewOtherProfileViewController.swift */,
 				79B1937D283DBE050055AAB7 /* BreedSelectViewController.swift */,
 				79B1937F283DBEB60055AAB7 /* CategorySelectViewController.swift */,
+				79B65D49284C29DA00AC0226 /* MainNavigationController.swift */,
 				BA8D8583283D807C004CBC16 /* Main.storyboard */,
 				BA8D8586283D807D004CBC16 /* Assets.xcassets */,
 				BA8D8588283D807D004CBC16 /* LaunchScreen.storyboard */,
@@ -190,6 +193,7 @@
 				BA8D8582283D807C004CBC16 /* ViewController.swift in Sources */,
 				BAD28A49283DD134009F6113 /* tabBarViewController.swift in Sources */,
 				BAD28A3E283DA89A009F6113 /* LikeListViewController.swift in Sources */,
+				79B65D4A284C29DA00AC0226 /* MainNavigationController.swift in Sources */,
 				BAD28A42283DA8C9009F6113 /* ViewOtherProfileViewController.swift in Sources */,
 				79B1937E283DBE050055AAB7 /* BreedSelectViewController.swift in Sources */,
 				BA8D857E283D807C004CBC16 /* AppDelegate.swift in Sources */,
