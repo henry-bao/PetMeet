@@ -20,7 +20,6 @@ class ViewOtherProfileViewController: UIViewController {
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var userEmail: UILabel!
     @IBOutlet weak var userLocation: UILabel!
-    
    
     @IBOutlet weak var petName: UILabel!
     @IBOutlet weak var petImage: UIImageView!
@@ -95,4 +94,11 @@ class ViewOtherProfileViewController: UIViewController {
                 }
             }
         }
+    
+    @IBAction func backBtn(_ sender: Any) {
+        if let viewVC = storyboard?.instantiateViewController(withIdentifier: "MatchVC") as? ViewOtherProfileViewController {
+             self.navigationController?.pushViewController(viewVC, animated: true)
+             }
+    }
+    
 }
