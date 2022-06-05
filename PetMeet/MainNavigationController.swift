@@ -1,24 +1,18 @@
 //
-//  tabBarViewController.swift
+//  MainNavigationController.swift
 //  PetMeet
 //
-//  Created by Henry Bao on 5/24/22.
+//  Created by Sky Wu on 6/4/22.
 //
 
 import UIKit
 
-class tabBarViewController: UITabBarController {
-    var firstName = ""
-    var lastName = ""
-    var email = ""
-    var userID = ""
-    var zipCode = ""
-    
-    
+class MainNavigationController: UINavigationController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.selectedIndex = 1
-        navigationItem.hidesBackButton = true
+        self.isNavigationBarHidden = true
+        // Do any additional setup after loading the view.
     }
     
 

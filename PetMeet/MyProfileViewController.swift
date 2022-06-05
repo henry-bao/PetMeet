@@ -251,8 +251,7 @@ class MyProfileViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         petBreedField.tintColor = .clear
         
         self.hideKeyboardWhenTappedAround()
-        self.navigationItem.hidesBackButton = true
-        self.navigationController?.isNavigationBarHidden = true
+//        self.navigationItem.hidesBackButton = true
         confirmBtn.isEnabled = false
         
         displayUserInfo()
