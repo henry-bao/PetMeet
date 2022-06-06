@@ -42,6 +42,7 @@ class MyProfileViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     @IBOutlet weak var confirmBtn: UIButton!
     @IBOutlet weak var petBreedField: UITextField!
     @IBOutlet weak var petPhotoImage: UIImageView!
+    @IBOutlet weak var uploadPhoto: UIButton!
     
     @IBAction func uploadPetPhoto(_ sender: Any) {
         let imagePicker = UIImagePickerController()
@@ -182,6 +183,7 @@ class MyProfileViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         petNameField.isUserInteractionEnabled = false
         petCategorySeg.isUserInteractionEnabled = false
         petBreedField.isUserInteractionEnabled = false
+        uploadPhoto.isEnabled = false
     }
     
     func enableUserInteraction() {
@@ -194,6 +196,7 @@ class MyProfileViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         petNameField.isUserInteractionEnabled = true
         petCategorySeg.isUserInteractionEnabled = true
         petBreedField.isUserInteractionEnabled = true
+        uploadPhoto.isEnabled = true
     }
     
     @IBAction func confirmBtnPressed(_ sender: Any) {

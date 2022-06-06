@@ -28,6 +28,8 @@ class MatchViewController: UIViewController {
     var petIndex = 0
     var petNum = 0
     
+    var passUserID = ""
+    
     private let fStorage = Storage.storage().reference()
     
     override func viewDidLoad() {
@@ -107,18 +109,21 @@ class MatchViewController: UIViewController {
         
         db.collection("users").getDocuments { (snapshot, error) in
             if error == nil && snapshot != nil {
+                
                 // get all userids
                 for i in 0...snapshot!.documents.count-1 {
                     let document = snapshot!.documents[i]
-                    
+            
                     // let currentUserID = Auth.auth().currentUser!.uid
                     // if document.documentID != currentUserID {
-                        self.userID.append(document.documentID)
+                    self.userID.append(document.documentID)
+ 
                     // }
                 }
                 
                 // fetch pet info
                 db.collection("users").document(self.userID[self.petIndex]).collection("pets").getDocuments { (snapshot, error) in
+                    
                     if error == nil && snapshot != nil {
                         let document = snapshot!.documents[0]
                         let docuData = document.data()
@@ -129,6 +134,7 @@ class MatchViewController: UIViewController {
                         self.nameAndAgeButton.setAttributedTitle(NSAttributedString(string: "\(self.petname)  \(self.petage)yrs"), for: .normal)
                         self.breedLabel.text = self.breed
                         self.genderLabel.text = self.gender
+                        self.passUserID = self.userID[self.petIndex]
                     }
                 }
                 
@@ -146,6 +152,14 @@ class MatchViewController: UIViewController {
                   }
                 }
             }
+        }
+    }
+    
+    @IBAction func seeProfile(_ sender: Any) {
+        
+        if let ViewOtherVC = storyboard?.instantiateViewController(withIdentifier: "ViewOtherVC") as? ViewOtherProfileViewController {
+            self.navigationController?.pushViewController(ViewOtherVC, animated: true)
+            ViewOtherVC.userID = passUserID
         }
     }
 }
