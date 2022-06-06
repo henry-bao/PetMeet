@@ -77,9 +77,10 @@
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="199" id="hsa-PS-o6Y"/>
                                 </constraints>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" systemColor="systemPinkColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" subtitle="" titleAlignment="automatic">
+                                    <backgroundConfiguration key="background"/>
                                     <attributedString key="attributedTitle">
                                         <fragment content="Name + Age">
                                             <attributes>
@@ -133,6 +134,7 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="match" image="find" id="nMU-ZX-oHH"/>
+                    <navigationItem key="navigationItem" id="hop-q9-qL5"/>
                     <connections>
                         <outlet property="breedLabel" destination="UX7-Ya-ZMG" id="C06-js-gmO"/>
                         <outlet property="dislikeButton" destination="dGf-Mf-X8L" id="dJh-Zk-wAq"/>
@@ -332,6 +334,7 @@
                                     </button>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Hsd-Pg-0Ra">
                                         <rect key="frame" x="0.0" y="301" width="286" height="51"/>
+                                        <color key="backgroundColor" red="0.94901961089999998" green="0.9098039269" blue="0.92941176889999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <segments>
                                             <segment title="Male"/>
                                             <segment title="Female"/>
@@ -352,6 +355,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="clu-Op-tC9">
                                 <rect key="frame" x="175" y="784" width="66" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" systemColor="systemPinkColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="Apply!"/>
                             </button>
@@ -401,19 +405,20 @@
                                                 </items>
                                                 <color key="barTintColor" red="0.97254908080000002" green="0.84705877299999999" blue="0.8392156959" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </toolbar>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nyJ-lH-LDz">
-                                                <rect key="frame" x="8" y="59" width="56" height="30"/>
+                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nyJ-lH-LDz">
+                                                <rect key="frame" x="8" y="59" width="92" height="30"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="56" id="4cD-Na-SG6"/>
+                                                    <constraint firstAttribute="width" constant="70" id="4cD-Na-SG6"/>
                                                     <constraint firstAttribute="height" constant="30" id="6Ah-DW-b6n"/>
                                                 </constraints>
+                                                <color key="tintColor" systemColor="systemPinkColor"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Back"/>
                                                 <connections>
                                                     <action selector="backBtn:" destination="SHM-gj-gsi" eventType="touchUpInside" id="ntR-PS-cdK"/>
                                                 </connections>
                                             </button>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="Txs-hr-IGB">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileHolderThree" translatesAutoresizingMaskIntoConstraints="NO" id="Txs-hr-IGB">
                                                 <rect key="frame" x="132" y="119" width="150" height="150"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="150" id="fz3-ft-2U2"/>
@@ -619,6 +624,7 @@
                     <navigationItem key="navigationItem" id="naH-Fg-Dd5"/>
                     <size key="freeformSize" width="414" height="1000"/>
                     <connections>
+                        <outlet property="backButton" destination="nyJ-lH-LDz" id="Zvi-6t-rRU"/>
                         <outlet property="petAge" destination="iSD-8J-rJz" id="qZZ-Ia-CsO"/>
                         <outlet property="petBreed" destination="Adt-No-bfL" id="hj1-6I-X5g"/>
                         <outlet property="petCategory" destination="uHi-l4-Sj2" id="bdR-Jt-GSP"/>
@@ -632,7 +638,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z2s-eI-KJa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="883" y="1954"/>
+            <point key="canvasLocation" x="115.94202898550725" y="1205.3571428571429"/>
         </scene>
         <!--Main Navigation Controller-->
         <scene sceneID="0Lg-Db-JTx">
@@ -674,6 +680,7 @@
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="VKH-lo-jIf">
                                             <rect key="frame" x="340.5" y="5" width="53.5" height="34.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="tintColor" systemColor="systemPinkColor"/>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="plain" title="Edit"/>
                                             <connections>
@@ -690,7 +697,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Xb-Zc-nLC">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1200"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="bKh-m1-pRR">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileHolderThree" translatesAutoresizingMaskIntoConstraints="NO" id="bKh-m1-pRR">
                                                 <rect key="frame" x="132" y="70" width="150" height="150"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="150" id="2cr-Zf-NCB"/>
@@ -744,6 +751,7 @@
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IAS-4m-hfP">
                                                 <rect key="frame" x="151" y="790.5" width="112" height="31"/>
+                                                <color key="tintColor" systemColor="systemPinkColor"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="gray" title="Upload Photo"/>
                                                 <connections>
@@ -826,6 +834,7 @@
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JQN-vR-Db9">
                                                 <rect key="frame" x="32" y="1119.5" width="350" height="31"/>
+                                                <color key="tintColor" systemColor="systemPinkColor"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="gray" title="Confirm"/>
                                                 <connections>
@@ -902,6 +911,7 @@
                         <outlet property="petGenderSeg" destination="Q8I-Hq-fUa" id="aYs-sa-nNv"/>
                         <outlet property="petNameField" destination="OyS-Xb-VJP" id="SaY-ci-ZH9"/>
                         <outlet property="petPhotoImage" destination="7ww-kg-kyU" id="Rus-hx-CZe"/>
+                        <outlet property="uploadPhoto" destination="IAS-4m-hfP" id="0pw-nd-wXD"/>
                         <outlet property="userEmailField" destination="O8N-Xp-YXW" id="1K8-Qs-wIU"/>
                         <outlet property="userFirstNameField" destination="sNy-fZ-Xd6" id="MHC-1t-LwH"/>
                         <outlet property="userLastNameField" destination="G5g-8j-EVX" id="FbL-cQ-dZg"/>
@@ -920,8 +930,12 @@
         <image name="likeList" width="32" height="32"/>
         <image name="placeholder" width="512" height="512"/>
         <image name="profile" width="32" height="32"/>
+        <image name="profileHolderThree" width="512" height="512"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
