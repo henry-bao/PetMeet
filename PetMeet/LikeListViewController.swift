@@ -129,6 +129,7 @@ class LikeListViewController: UIViewController, UITableViewDataSource, UITableVi
             } else {
                 return UITableViewCell()
             }
+            
         default:
             return UITableViewCell()
         }
@@ -156,26 +157,13 @@ class LikeListViewController: UIViewController, UITableViewDataSource, UITableVi
     }
 
     private func getUsersLikedMyPet() {
-        // find users pet id
         let user = Auth.auth().currentUser
         if let user = user {
             let uid = user.uid
-            let docRef = firestore.collection("users").document(uid)
-            docRef.getDocument { (document, error) in
-                guard error == nil else {
-                    let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                    self.present(alert, animated: true, completion: nil)
-                    return
-                }
-                if let document = document, document.exists {
-                    let data = document.data()
-                    let petId = data?["pet id"] as? String
-                    // find users liked pets
+            firestore.collection("users").document(uid).collection("pets").getDocuments { (snapshot, error) in
+                if error == nil && snapshot != nil {
+                    let petId = snapshot?.documents[0].documentID
                     self.firestore.collection("users").getDocuments { (snapshot, error) in
-                        if error != nil {
-                            print(error.debugDescription)
-                        }
                         if error == nil && snapshot != nil {
                             for i in 0...snapshot!.documents.count - 1 {
                                 let userId = snapshot!.documents[i].documentID
