@@ -19,6 +19,8 @@ class LikeListTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    var userId: String = ""
         
     @IBOutlet weak var ageLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!

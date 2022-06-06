@@ -44,10 +44,22 @@ class LikeListViewController: UIViewController, UITableViewDataSource, UITableVi
         return 100
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // get the selected cell
+        let cell = tableView.cellForRow(at: indexPath) as! LikeListTableViewCell
+        if let ViewOtherVC = storyboard?.instantiateViewController(withIdentifier: "ViewOtherVC") as? ViewOtherProfileViewController {
+            ViewOtherVC.userID = cell.userId
+            self.navigationController?.pushViewController(ViewOtherVC, animated: true)
+        }
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: LikeListTableViewCell = likeListTable.dequeueReusableCell(withIdentifier: "likeListCell") as! LikeListTableViewCell
         let petId = (userData["like list"] as? [String])?[indexPath.row]
         firestore.collection("users").getDocuments { (snapshot, error) in
+            if error != nil {
+                print(error.debugDescription)
+            }
             if error == nil && snapshot != nil {
                 for i in 0...snapshot!.documents.count - 1 {
                     let userId = snapshot!.documents[i].documentID
@@ -55,9 +67,9 @@ class LikeListViewController: UIViewController, UITableViewDataSource, UITableVi
                         if error == nil && snapshot != nil {
                             for j in 0...snapshot!.documents.count-1 {
                                 if (snapshot!.documents[j].documentID == petId) {
+                                    cell.userId = userId
                                     cell.nameLabel.text = (snapshot!.documents[j].data()["name"] as? String)!
                                     cell.ageLabel.text = "\((snapshot!.documents[j].data()["age"] as? String)!) years old"
-                                    print(userId)
                                     self.storage.child("images/\(userId).png").getData(maxSize: 3 * 1024 * 1024) { (data, error) in
                                         if error == nil {
                                             let image = UIImage(data: data!)

@@ -90,10 +90,9 @@ class ViewOtherProfileViewController: UIViewController {
     
     @IBAction func backBtn(_ sender: Any) {
         if let matchVC = storyboard?.instantiateViewController(withIdentifier: "TabBarController") as? tabBarViewController {
-              self.navigationController?.pushViewController(matchVC, animated: true)
-
-             }
-        let matchVC = self.storyboard?.instantiateViewController(withIdentifier: "matchVC") as! MatchViewController
+            self.navigationController?.pushViewController(matchVC, animated: true)
+        }
+//        let matchVC = self.storyboard?.instantiateViewController(withIdentifier: "matchVC") as! MatchViewController
 
       // You can create your own animation
 
