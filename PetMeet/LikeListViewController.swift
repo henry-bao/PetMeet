@@ -25,7 +25,6 @@ class LikeListViewController: UIViewController, UITableViewDataSource, UITableVi
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        likeListSwitch.selectedSegmentIndex = 0
         likeListTable.delegate = self
         likeListTable.dataSource = self
         setLoadingScreen()
@@ -70,10 +69,10 @@ class LikeListViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: LikeListTableViewCell = likeListTable.dequeueReusableCell(withIdentifier: "likeListCell") as! LikeListTableViewCell
-        let petId = (userData["like list"] as? [String])?[indexPath.row]
         switch likeListSwitch.selectedSegmentIndex {
         case 0:
+            let cell: LikeListTableViewCell = likeListTable.dequeueReusableCell(withIdentifier: "likeListCell") as! LikeListTableViewCell
+            let petId = (userData["like list"] as? [String])?[indexPath.row]
             firestore.collection("users").getDocuments { (snapshot, error) in
                 if error != nil {
                     print(error.debugDescription)
@@ -104,32 +103,24 @@ class LikeListViewController: UIViewController, UITableViewDataSource, UITableVi
             return cell
             
         case 1:
-            if usersLikedMyPet.count > 0 {
-                for i in 0...usersLikedMyPet.count - 1 {
-                    let userId = usersLikedMyPet[i]
-                    firestore.collection("users").document(userId).collection("pets").getDocuments { (snapshot, error) in
-                        if error == nil && snapshot != nil {
-                            for j in 0...snapshot!.documents.count - 1 {
-                                if (snapshot!.documents[j].documentID == petId) {
-                                    cell.userId = userId
-                                    cell.nameLabel.text = (snapshot!.documents[j].data()["name"] as? String)!
-                                    cell.ageLabel.text = "\((snapshot!.documents[j].data()["age"] as? String)!) years old"
-                                    self.storage.child("images/\(userId).png").getData(maxSize: 3 * 1024 * 1024) { (data, error) in
-                                        if error == nil {
-                                            let image = UIImage(data: data!)
-                                            cell.petImage.image = image
-                                        }
-                                    }
-                                }
+            let cell: LikeListTableViewCell = likeListTable.dequeueReusableCell(withIdentifier: "likeListCell") as! LikeListTableViewCell
+            let userId = usersLikedMyPet[indexPath.row]
+            firestore.collection("users").document(userId).collection("pets").getDocuments { (snapshot, error) in
+                if error == nil && snapshot != nil {
+                    for j in 0...snapshot!.documents.count - 1 {
+                        cell.userId = userId
+                        cell.nameLabel.text = (snapshot!.documents[j].data()["name"] as? String)!
+                        cell.ageLabel.text = "\((snapshot!.documents[j].data()["age"] as? String)!) years old"
+                        self.storage.child("images/\(userId).png").getData(maxSize: 3 * 1024 * 1024) { (data, error) in
+                            if error == nil {
+                                let image = UIImage(data: data!)
+                                cell.petImage.image = image
                             }
                         }
                     }
                 }
-                return cell
-            } else {
-                return UITableViewCell()
             }
-            
+            return cell
         default:
             return UITableViewCell()
         }
@@ -165,18 +156,12 @@ class LikeListViewController: UIViewController, UITableViewDataSource, UITableVi
                     let petId = snapshot?.documents[0].documentID
                     self.firestore.collection("users").getDocuments { (snapshot, error) in
                         if error == nil && snapshot != nil {
-                            for i in 0...snapshot!.documents.count - 1 {
-                                let userId = snapshot!.documents[i].documentID
-                                self.firestore.collection("users").document(userId).collection("pets").getDocuments { (snapshot, error) in
-                                    if error == nil && snapshot != nil {
-                                        for j in 0...snapshot!.documents.count - 1 {
-                                            if (snapshot!.documents[j].documentID == petId) {
-                                                self.usersLikedMyPet.append(userId)
-                                            }
-                                        }
-                                    }
-                                }
-                            }
+                             for i in 0...snapshot!.documents.count - 1 {
+                                 let userId = snapshot!.documents[i].documentID
+                                 if (snapshot!.documents[i].data()["like list"] as? [String])?.contains(petId!) ?? false {
+                                     self.usersLikedMyPet.append(userId)
+                                 }
+                             }
                         }
                     }
                 }
@@ -184,20 +169,6 @@ class LikeListViewController: UIViewController, UITableViewDataSource, UITableVi
             self.likeListTable.reloadData()
             self.removeLoadingScreen()
         }
-
-        // firestore.collection("users").getDocuments { (snapshot, error) in
-        //     if error != nil {
-        //         print(error.debugDescription)
-        //     }
-        //     if error == nil && snapshot != nil {
-        //         for i in 0...snapshot!.documents.count - 1 {
-        //             let userId = snapshot!.documents[i].documentID
-        //             if (snapshot!.documents[i].data()["like list"] as? [String])?.contains(petId) ?? false {
-        //                 self.usersLikedMyPet.append(userId)
-        //             }
-        //         }
-        //     }
-        // }
     }
 
     
