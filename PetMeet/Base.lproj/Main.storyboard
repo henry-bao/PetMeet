@@ -158,7 +158,7 @@
                                 <rect key="frame" x="20" y="162" width="374" height="651"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="81" id="7gQ-UC-vJs">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="likeListCell" rowHeight="81" id="7gQ-UC-vJs" customClass="LikeListTableViewCell" customModule="PetMeet" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="374" height="81"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7gQ-UC-vJs" id="RxC-ey-Y85">
@@ -166,17 +166,21 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nxx-I8-PwZ">
-                                                    <rect key="frame" x="20" y="9" width="61" height="64"/>
+                                                    <rect key="frame" x="20" y="3" width="75" height="75"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="75" id="UzZ-Sz-WaJ"/>
+                                                        <constraint firstAttribute="height" constant="75" id="vvX-qF-hCq"/>
+                                                    </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wrl-dh-tDV">
-                                                    <rect key="frame" x="108" y="9" width="45" height="20.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Age" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ntb-UR-aFF">
+                                                    <rect key="frame" x="110" y="38" width="244" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Age" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ntb-UR-aFF">
-                                                    <rect key="frame" x="108" y="38" width="30" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wrl-dh-tDV">
+                                                    <rect key="frame" x="110" y="9" width="244" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -184,14 +188,20 @@
                                             <constraints>
                                                 <constraint firstItem="nxx-I8-PwZ" firstAttribute="leading" secondItem="RxC-ey-Y85" secondAttribute="leading" constant="20" symbolic="YES" id="1eF-FP-PDX"/>
                                                 <constraint firstItem="wrl-dh-tDV" firstAttribute="top" secondItem="RxC-ey-Y85" secondAttribute="top" constant="9" id="1sE-R4-Eg1"/>
-                                                <constraint firstAttribute="trailing" secondItem="nxx-I8-PwZ" secondAttribute="trailing" constant="293" id="JmV-lS-SIf"/>
-                                                <constraint firstItem="nxx-I8-PwZ" firstAttribute="top" secondItem="RxC-ey-Y85" secondAttribute="top" constant="9" id="LrQ-Gb-PR3"/>
+                                                <constraint firstItem="ntb-UR-aFF" firstAttribute="leading" secondItem="nxx-I8-PwZ" secondAttribute="trailing" constant="15" id="1ub-jf-5mL"/>
+                                                <constraint firstAttribute="bottom" secondItem="nxx-I8-PwZ" secondAttribute="bottom" constant="3" id="Y16-cL-Rfy"/>
                                                 <constraint firstItem="ntb-UR-aFF" firstAttribute="top" secondItem="wrl-dh-tDV" secondAttribute="bottom" constant="8.5" id="alW-BU-KI2"/>
-                                                <constraint firstAttribute="bottom" secondItem="nxx-I8-PwZ" secondAttribute="bottom" constant="8" id="bHj-cA-6Ge"/>
-                                                <constraint firstItem="wrl-dh-tDV" firstAttribute="leading" secondItem="nxx-I8-PwZ" secondAttribute="trailing" constant="27" id="inX-4B-dcI"/>
-                                                <constraint firstItem="ntb-UR-aFF" firstAttribute="leading" secondItem="nxx-I8-PwZ" secondAttribute="trailing" constant="27" id="tC3-88-vcj"/>
+                                                <constraint firstAttribute="trailing" secondItem="ntb-UR-aFF" secondAttribute="trailing" constant="20" symbolic="YES" id="gHP-qh-x08"/>
+                                                <constraint firstItem="wrl-dh-tDV" firstAttribute="leading" secondItem="nxx-I8-PwZ" secondAttribute="trailing" constant="15" id="u27-uT-HAl"/>
+                                                <constraint firstAttribute="trailing" secondItem="wrl-dh-tDV" secondAttribute="trailing" constant="20" symbolic="YES" id="xKH-zA-rfP"/>
+                                                <constraint firstItem="nxx-I8-PwZ" firstAttribute="top" secondItem="RxC-ey-Y85" secondAttribute="top" constant="3" id="xb1-U9-UNK"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="ageLabel" destination="ntb-UR-aFF" id="hse-pi-LyR"/>
+                                            <outlet property="nameLabel" destination="wrl-dh-tDV" id="3Ft-3C-yuH"/>
+                                            <outlet property="petImage" destination="nxx-I8-PwZ" id="CsX-4n-Tdn"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -204,6 +214,9 @@
                                     <segment title="Who I Liked?"/>
                                     <segment title="Who Liked Me?"/>
                                 </segments>
+                                <connections>
+                                    <action selector="didClickLikeListSwitch:" destination="ghj-61-zg4" eventType="valueChanged" id="bSW-gd-DYQ"/>
+                                </connections>
                             </segmentedControl>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nR1-yq-dV6">
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -235,6 +248,10 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="likes" image="likeList" id="FfM-YK-dxu"/>
+                    <connections>
+                        <outlet property="likeListSwitch" destination="1Hy-Ta-8TP" id="onx-Bc-Zcs"/>
+                        <outlet property="likeListTable" destination="0j1-xH-Zin" id="ww0-fu-gYU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oke-x0-STj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -15,7 +15,7 @@ class MyProfileViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     private let firedb = Firestore.firestore()
     private let fStorage = Storage.storage().reference()
     
-    final let catBreedList = ["Domestic Shorthair", "American Longhair", "Domestic Longhair", "Siamese", "Russian Blue", "Ragdoll", "Bombay", "Persian", "British Shorthair", "American Curl"]
+    final let catBreedList = ["Domestic Shorthair", "American Longhair", "Domestic Longhair", "Siamese", "Russian Blue", "Ragdoll", "Bombay", "Persian", "British Shorthair", "American Curl", "Nebelung"]
     final let dogBreedList = ["Siberian Husky", "Golden Retriever", "Labrador Retriever", "French Bulldog", "Beagle", "German Shepherd dog", "Poodle", "Yorkshire Terriers", "Shetland Sheepdog"]
     
     var firstName = ""
