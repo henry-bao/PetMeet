@@ -85,7 +85,17 @@ class MatchViewController: UIViewController {
     }
     
     @IBAction func likeButtonTouchUpInside(_ sender: Any) {
-        self.petIndex += 1
+        // write firebase data
+        let db = Firestore.firestore()
+        let currentUserID = Auth.auth().currentUser!.uid
+        
+        db.collection("users").document(self.userID[self.petIndex]).collection("pets").getDocuments { (snapshot, error) in
+            if error == nil && snapshot != nil {
+                let document = snapshot!.documents[0]
+                self.petID.append(document.documentID)
+            }
+        }
+        db.collection("users").document(currentUserID).updateData(["like list": petID])
         
         if self.petIndex >=  self.petNum - 1 { // no more pets to view
             let alert = UIAlertController(title: "You have viewed all the pets.", message: "See what you liked in the Like List!", preferredStyle: .alert)
@@ -93,20 +103,8 @@ class MatchViewController: UIViewController {
                      self.present(alert, animated: true, completion: { NSLog("The completion handler fired") })
         } else {
             // display next pet info
+            self.petIndex += 1
             getData()
-            
-            // write firebase data
-            let db = Firestore.firestore()
-            let currentUserID = Auth.auth().currentUser!.uid
-            
-            db.collection("users").document(self.userID[self.petIndex]).collection("pets").getDocuments { (snapshot, error) in
-                if error == nil && snapshot != nil {
-                    let document = snapshot!.documents[0]
-                    self.petID.append(document.documentID)
-                }
-            }
-            
-            db.collection("users").document(currentUserID).updateData(["like list": petID])
         }
     }
 
@@ -134,11 +132,10 @@ class MatchViewController: UIViewController {
                 for i in 0...snapshot!.documents.count-1 {
                     let document = snapshot!.documents[i]
             
-                    // let currentUserID = Auth.auth().currentUser!.uid
-                    // if document.documentID != currentUserID {
-                    self.userID.append(document.documentID)
- 
-                    // }
+//                    let currentUserID = Auth.auth().currentUser!.uid
+//                    if document.documentID != currentUserID {
+                        self.userID.append(document.documentID)
+//                    }
                 }
                 
                 // fetch pet info
