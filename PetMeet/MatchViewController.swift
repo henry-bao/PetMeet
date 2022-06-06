@@ -37,10 +37,17 @@ class MatchViewController: UIViewController {
         
         getData()
         getPetNum()
-        //nameAndAgeButton.setAttributedTitle("\(petname) \(petage)", for: .normal)
         nameAndAgeButton.setAttributedTitle(NSAttributedString(string: "\(petname)  \(petage)yrs"), for: .normal)
         breedLabel.text = breed
         genderLabel.text = gender
+        
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.swipeGesture))
+        swipeRight.direction = UISwipeGestureRecognizer.Direction.right
+        petPhotoImage.addGestureRecognizer(swipeRight)
+        
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.swipeGesture))
+        swipeLeft.direction = UISwipeGestureRecognizer.Direction.left
+        petPhotoImage.addGestureRecognizer(swipeLeft)
     }
     
     func getPetNum() {
@@ -60,6 +67,19 @@ class MatchViewController: UIViewController {
                     }
                 }
                 //print("*****\(self.petNum)")
+            }
+        }
+    }
+    
+    @IBAction func swipeGesture(_ sender: UISwipeGestureRecognizer?) {
+        if let swipeGesture = sender {
+            switch swipeGesture.direction {
+            case UISwipeGestureRecognizer.Direction.right:
+                likeButtonTouchUpInside(sender!)
+            case UISwipeGestureRecognizer.Direction.left:
+                dislikeButtonTouchUpInside(sender!)
+            default:
+                break
             }
         }
     }
