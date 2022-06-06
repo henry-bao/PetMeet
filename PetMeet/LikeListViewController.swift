@@ -17,7 +17,9 @@ class LikeListViewController: UIViewController, UITableViewDataSource, UITableVi
     let loadingView = UIView()
     let spinner = UIActivityIndicatorView()
     let loadingLabel = UILabel()
+    
     var userData: [String : Any] = [:]
+    var usersLikedMyPet: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,17 +29,32 @@ class LikeListViewController: UIViewController, UITableViewDataSource, UITableVi
         likeListTable.delegate = self
         likeListTable.dataSource = self
         setLoadingScreen()
-        loadListList()
+        loadUserData()
+        
+        likeListTable.refreshControl = UIRefreshControl()
+        likeListTable.refreshControl?.addTarget(self, action: #selector(didPullToRefresh), for: .valueChanged)
     }
     
     @IBOutlet weak var likeListTable: UITableView!
     @IBOutlet weak var likeListSwitch: UISegmentedControl!
     
     @IBAction func didClickLikeListSwitch(_ sender: Any) {
+        likeListTable.reloadData()
+    }
+    
+    @objc private func didPullToRefresh() {
+        loadUserData()
+        DispatchQueue.main.async {
+            self.likeListTable.refreshControl?.endRefreshing()
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (userData["like list"] as? [String])?.count ?? 0
+        if likeListSwitch.selectedSegmentIndex == 0 {
+            return (userData["like list"] as? [String])?.count ?? 0
+        } else {
+            return usersLikedMyPet.count
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -45,7 +62,6 @@ class LikeListViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // get the selected cell
         let cell = tableView.cellForRow(at: indexPath) as! LikeListTableViewCell
         if let ViewOtherVC = storyboard?.instantiateViewController(withIdentifier: "ViewOtherVC") as? ViewOtherProfileViewController {
             ViewOtherVC.userID = cell.userId
@@ -56,16 +72,44 @@ class LikeListViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: LikeListTableViewCell = likeListTable.dequeueReusableCell(withIdentifier: "likeListCell") as! LikeListTableViewCell
         let petId = (userData["like list"] as? [String])?[indexPath.row]
-        firestore.collection("users").getDocuments { (snapshot, error) in
-            if error != nil {
-                print(error.debugDescription)
+        switch likeListSwitch.selectedSegmentIndex {
+        case 0:
+            firestore.collection("users").getDocuments { (snapshot, error) in
+                if error != nil {
+                    print(error.debugDescription)
+                }
+                if error == nil && snapshot != nil {
+                    for i in 0...snapshot!.documents.count - 1 {
+                        let userId = snapshot!.documents[i].documentID
+                        self.firestore.collection("users").document(userId).collection("pets").getDocuments { (snapshot, error) in
+                            if error == nil && snapshot != nil {
+                                for j in 0...snapshot!.documents.count - 1 {
+                                    if (snapshot!.documents[j].documentID == petId) {
+                                        cell.userId = userId
+                                        cell.nameLabel.text = (snapshot!.documents[j].data()["name"] as? String)!
+                                        cell.ageLabel.text = "\((snapshot!.documents[j].data()["age"] as? String)!) years old"
+                                        self.storage.child("images/\(userId).png").getData(maxSize: 3 * 1024 * 1024) { (data, error) in
+                                            if error == nil {
+                                                let image = UIImage(data: data!)
+                                                cell.petImage.image = image
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
-            if error == nil && snapshot != nil {
-                for i in 0...snapshot!.documents.count - 1 {
-                    let userId = snapshot!.documents[i].documentID
-                    self.firestore.collection("users").document(userId).collection("pets").getDocuments { (snapshot, error) in
+            return cell
+            
+        case 1:
+            if usersLikedMyPet.count > 0 {
+                for i in 0...usersLikedMyPet.count - 1 {
+                    let userId = usersLikedMyPet[i]
+                    firestore.collection("users").document(userId).collection("pets").getDocuments { (snapshot, error) in
                         if error == nil && snapshot != nil {
-                            for j in 0...snapshot!.documents.count-1 {
+                            for j in 0...snapshot!.documents.count - 1 {
                                 if (snapshot!.documents[j].documentID == petId) {
                                     cell.userId = userId
                                     cell.nameLabel.text = (snapshot!.documents[j].data()["name"] as? String)!
@@ -81,12 +125,16 @@ class LikeListViewController: UIViewController, UITableViewDataSource, UITableVi
                         }
                     }
                 }
+                return cell
+            } else {
+                return UITableViewCell()
             }
+        default:
+            return UITableViewCell()
         }
-        return cell
     }
     
-    private func loadListList() {
+    private func loadUserData() {
         let user = Auth.auth().currentUser
         if let user = user {
             let uid = user.uid
@@ -101,12 +149,69 @@ class LikeListViewController: UIViewController, UITableViewDataSource, UITableVi
                 if let document = document, document.exists {
                     let data = document.data()
                     self.userData = data ?? [:]
-                    self.likeListTable.reloadData()
-                    self.removeLoadingScreen()
+                    self.getUsersLikedMyPet()
                 }
             }
         }
     }
+
+    private func getUsersLikedMyPet() {
+        // find users pet id
+        let user = Auth.auth().currentUser
+        if let user = user {
+            let uid = user.uid
+            let docRef = firestore.collection("users").document(uid)
+            docRef.getDocument { (document, error) in
+                guard error == nil else {
+                    let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                    return
+                }
+                if let document = document, document.exists {
+                    let data = document.data()
+                    let petId = data?["pet id"] as? String
+                    // find users liked pets
+                    self.firestore.collection("users").getDocuments { (snapshot, error) in
+                        if error != nil {
+                            print(error.debugDescription)
+                        }
+                        if error == nil && snapshot != nil {
+                            for i in 0...snapshot!.documents.count - 1 {
+                                let userId = snapshot!.documents[i].documentID
+                                self.firestore.collection("users").document(userId).collection("pets").getDocuments { (snapshot, error) in
+                                    if error == nil && snapshot != nil {
+                                        for j in 0...snapshot!.documents.count - 1 {
+                                            if (snapshot!.documents[j].documentID == petId) {
+                                                self.usersLikedMyPet.append(userId)
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            self.likeListTable.reloadData()
+            self.removeLoadingScreen()
+        }
+
+        // firestore.collection("users").getDocuments { (snapshot, error) in
+        //     if error != nil {
+        //         print(error.debugDescription)
+        //     }
+        //     if error == nil && snapshot != nil {
+        //         for i in 0...snapshot!.documents.count - 1 {
+        //             let userId = snapshot!.documents[i].documentID
+        //             if (snapshot!.documents[i].data()["like list"] as? [String])?.contains(petId) ?? false {
+        //                 self.usersLikedMyPet.append(userId)
+        //             }
+        //         }
+        //     }
+        // }
+    }
+
     
     private func setLoadingScreen() {
         let width: CGFloat = 120
@@ -130,12 +235,12 @@ class LikeListViewController: UIViewController, UITableViewDataSource, UITableVi
 
       }
 
-      private func removeLoadingScreen() {
-          spinner.stopAnimating()
-          spinner.isHidden = true
-          loadingLabel.isHidden = true
-      }
-    
+    private func removeLoadingScreen() {
+        spinner.stopAnimating()
+        spinner.isHidden = true
+        loadingLabel.isHidden = true
+    }
+        
 
     /*
     // MARK: - Navigation

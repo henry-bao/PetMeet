@@ -171,7 +171,6 @@
                                                     <rect key="frame" x="20" y="3" width="75" height="75"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="75" id="UzZ-Sz-WaJ"/>
-                                                        <constraint firstAttribute="height" constant="75" id="vvX-qF-hCq"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Age" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ntb-UR-aFF">
