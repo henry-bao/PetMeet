@@ -13,7 +13,7 @@ import FirebaseStorage
  
 class ViewOtherProfileViewController: UIViewController {
  
-    var userID = "u7lh6BuRPtUvvz5vGLunI8BiGj33"
+    //var userID = "u7lh6BuRPtUvvz5vGLunI8BiGj33"
     private var db = Firestore.firestore()
     private let fStorage = Storage.storage().reference()
     
@@ -30,12 +30,12 @@ class ViewOtherProfileViewController: UIViewController {
     
     var firstName = ""
     var lastName = ""
+    var userID = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchPetInfo()
         fetchUserInfo()
-        
         // Do any additional setup after loading the view.
     }
    
@@ -44,21 +44,15 @@ class ViewOtherProfileViewController: UIViewController {
             self.db.collection("users").document(userID).getDocument{ (document, error) in
                 if error == nil {
                     if document != nil && document!.exists {
-                       // self.userIDList =
                         let documentData = document!.data()
                         self.firstName = documentData!["first name"] as! String
                         self.lastName = documentData!["last name"] as! String
                         self.userEmail.text = documentData!["email"] as? String
-                        //self.zipCode = documentData!["zip code"] as! String
-                        self.userLocation.text = documentData!["zip code"] as? String //可以这么写吗？二选1？
-    //                            print("\(firstName!), \(lastName!), \(email!), \(userID!)")
-                        //self.hasAccount(firstName: firstName!, lastName: lastName!, email: email!, uid: userID!, zipCode: zipCode)
-                        print(self.userLocation.text)
+                        self.userLocation.text = documentData!["zip code"] as? String
                         self.userName.text = ("\(self.firstName), \(self.lastName)")
                     }
                 }
             }
- 
         }
  
         func fetchPetInfo() {
@@ -66,20 +60,16 @@ class ViewOtherProfileViewController: UIViewController {
                 if error == nil && snapshot != nil{
                     let document = snapshot!.documents[0]
                     let docuData = document.data()
-                   // self.getPetName = docuData["name"] as! String
                     self.petName.text = docuData["name"] as? String
-                    //self.getPetAge = docuData["age"] as! String
                     self.petAge.text = docuData["age"] as? String
-                    //self.getPetCategory = docuData["category"] as! String
                     self.petCategory.text = docuData["category"] as? String
-    //                self.getPetBreed = docuData["breed"] as! String
-    //                self.getPetGender = docuData["gender"] as! String
                     self.petBreed.text = docuData["breed"] as? String
                     self.petGender.text = docuData["gender"] as? String
                     //print(self.petGender.text)
                 }
             }
             
+            //fetch image
             let getImage = self.fStorage.child("images/\(self.userID).png")
  
             getImage.getData(maxSize: 3 * 1024 * 1024){ data, error in
@@ -93,12 +83,12 @@ class ViewOtherProfileViewController: UIViewController {
                     self.petImage.image = image
                 }
             }
+            
         }
     
     @IBAction func backBtn(_ sender: Any) {
-        if let viewVC = storyboard?.instantiateViewController(withIdentifier: "MatchVC") as? ViewOtherProfileViewController {
-             self.navigationController?.pushViewController(viewVC, animated: true)
+        if let matchVC = storyboard?.instantiateViewController(withIdentifier: "MatchVC") as? MatchViewController {
+             self.navigationController?.pushViewController(matchVC, animated: true)
              }
     }
-    
 }

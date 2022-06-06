@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="SHM-gj-gsi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="U86-ey-OGI">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -90,7 +90,7 @@
                                     </attributedString>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="NameButtonTouchUpInside:" destination="Aqc-EC-XKQ" eventType="touchUpInside" id="RXI-c2-BhN"/>
+                                    <action selector="seeProfile:" destination="Aqc-EC-XKQ" eventType="touchUpInside" id="bV0-v2-BIf"/>
                                 </connections>
                             </button>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kSE-6i-xEd">
@@ -377,7 +377,7 @@
         <!--View Other Profile View Controller-->
         <scene sceneID="Awm-CB-WQQ">
             <objects>
-                <viewController storyboardIdentifier="VIewOtherVC" modalPresentationStyle="fullScreen" id="SHM-gj-gsi" customClass="ViewOtherProfileViewController" customModule="PetMeet" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewOtherVC" modalPresentationStyle="fullScreen" id="SHM-gj-gsi" customClass="ViewOtherProfileViewController" customModule="PetMeet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6Hn-sb-ZJc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -632,7 +632,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z2s-eI-KJa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="884" y="1857"/>
+            <point key="canvasLocation" x="883" y="1954"/>
         </scene>
         <!--Main Navigation Controller-->
         <scene sceneID="0Lg-Db-JTx">
