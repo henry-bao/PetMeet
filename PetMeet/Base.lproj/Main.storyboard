@@ -16,8 +16,30 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login" translatesAutoresizingMaskIntoConstraints="NO" id="T4W-8H-zLc">
+                                <rect key="frame" x="107" y="138" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="AVl-PR-h4y"/>
+                                    <constraint firstAttribute="height" constant="200" id="RwT-zS-hfM"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PeetMeet" translatesAutoresizingMaskIntoConstraints="NO" id="jGY-ch-bZL">
+                                <rect key="frame" x="82" y="358" width="250" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="9wI-nM-teW"/>
+                                    <constraint firstAttribute="height" constant="100" id="Rmz-od-CXZ"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="jGY-ch-bZL" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="E1E-EO-I0c"/>
+                            <constraint firstItem="T4W-8H-zLc" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="GO2-k5-eZE"/>
+                            <constraint firstItem="T4W-8H-zLc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="UnC-eD-KBq"/>
+                            <constraint firstItem="jGY-ch-bZL" firstAttribute="top" secondItem="T4W-8H-zLc" secondAttribute="bottom" constant="20" id="kgM-FD-TiK"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="l6R-z0-eBd"/>
                 </viewController>
@@ -900,10 +922,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="PeetMeet" width="496" height="94"/>
         <image name="dislike" width="50" height="50"/>
         <image name="find" width="32" height="32"/>
         <image name="like" width="50" height="50"/>
         <image name="likeList" width="32" height="32"/>
+        <image name="login" width="720" height="718"/>
         <image name="placeholder" width="512" height="512"/>
         <image name="profile" width="32" height="32"/>
         <systemColor name="systemBackgroundColor">
