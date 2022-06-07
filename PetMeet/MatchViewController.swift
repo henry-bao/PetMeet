@@ -28,6 +28,8 @@ class MatchViewController: UIViewController {
     var petIndex = 0
     var petNum = 0
     
+    var passUserID = ""
+    
     private let fStorage = Storage.storage().reference()
     
     override func viewDidLoad() {
@@ -35,10 +37,17 @@ class MatchViewController: UIViewController {
         
         getData()
         getPetNum()
-        //nameAndAgeButton.setAttributedTitle("\(petname) \(petage)", for: .normal)
         nameAndAgeButton.setAttributedTitle(NSAttributedString(string: "\(petname)  \(petage)yrs"), for: .normal)
         breedLabel.text = breed
         genderLabel.text = gender
+        
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.swipeGesture))
+        swipeRight.direction = UISwipeGestureRecognizer.Direction.right
+        petPhotoImage.addGestureRecognizer(swipeRight)
+        
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.swipeGesture))
+        swipeLeft.direction = UISwipeGestureRecognizer.Direction.left
+        petPhotoImage.addGestureRecognizer(swipeLeft)
     }
     
     func getPetNum() {
@@ -62,8 +71,31 @@ class MatchViewController: UIViewController {
         }
     }
     
+    @IBAction func swipeGesture(_ sender: UISwipeGestureRecognizer?) {
+        if let swipeGesture = sender {
+            switch swipeGesture.direction {
+            case UISwipeGestureRecognizer.Direction.right:
+                likeButtonTouchUpInside(sender!)
+            case UISwipeGestureRecognizer.Direction.left:
+                dislikeButtonTouchUpInside(sender!)
+            default:
+                break
+            }
+        }
+    }
+    
     @IBAction func likeButtonTouchUpInside(_ sender: Any) {
-        self.petIndex += 1
+        // write firebase data
+        let db = Firestore.firestore()
+        let currentUserID = Auth.auth().currentUser!.uid
+        
+        db.collection("users").document(self.userID[self.petIndex]).collection("pets").getDocuments { (snapshot, error) in
+            if error == nil && snapshot != nil {
+                let document = snapshot!.documents[0]
+                self.petID.append(document.documentID)
+            }
+        }
+        db.collection("users").document(currentUserID).updateData(["like list": petID])
         
         if self.petIndex >=  self.petNum - 1 { // no more pets to view
             let alert = UIAlertController(title: "You have viewed all the pets.", message: "See what you liked in the Like List!", preferredStyle: .alert)
@@ -71,20 +103,8 @@ class MatchViewController: UIViewController {
                      self.present(alert, animated: true, completion: { NSLog("The completion handler fired") })
         } else {
             // display next pet info
+            self.petIndex += 1
             getData()
-            
-            // write firebase data
-            let db = Firestore.firestore()
-            let currentUserID = Auth.auth().currentUser!.uid
-            
-            db.collection("users").document(self.userID[self.petIndex]).collection("pets").getDocuments { (snapshot, error) in
-                if error == nil && snapshot != nil {
-                    let document = snapshot!.documents[0]
-                    self.petID.append(document.documentID)
-                }
-            }
-            
-            db.collection("users").document(currentUserID).updateData(["like list": petID])
         }
     }
 
@@ -107,18 +127,20 @@ class MatchViewController: UIViewController {
         
         db.collection("users").getDocuments { (snapshot, error) in
             if error == nil && snapshot != nil {
+                
                 // get all userids
                 for i in 0...snapshot!.documents.count-1 {
                     let document = snapshot!.documents[i]
-                    
-                    // let currentUserID = Auth.auth().currentUser!.uid
-                    // if document.documentID != currentUserID {
+            
+//                    let currentUserID = Auth.auth().currentUser!.uid
+//                    if document.documentID != currentUserID {
                         self.userID.append(document.documentID)
-                    // }
+//                    }
                 }
                 
                 // fetch pet info
                 db.collection("users").document(self.userID[self.petIndex]).collection("pets").getDocuments { (snapshot, error) in
+                    
                     if error == nil && snapshot != nil {
                         let document = snapshot!.documents[0]
                         let docuData = document.data()
@@ -129,6 +151,7 @@ class MatchViewController: UIViewController {
                         self.nameAndAgeButton.setAttributedTitle(NSAttributedString(string: "\(self.petname)  \(self.petage)yrs"), for: .normal)
                         self.breedLabel.text = self.breed
                         self.genderLabel.text = self.gender
+                        self.passUserID = self.userID[self.petIndex]
                     }
                 }
                 
@@ -146,6 +169,14 @@ class MatchViewController: UIViewController {
                   }
                 }
             }
+        }
+    }
+    
+    @IBAction func seeProfile(_ sender: Any) {
+        
+        if let ViewOtherVC = storyboard?.instantiateViewController(withIdentifier: "ViewOtherVC") as? ViewOtherProfileViewController {
+            self.navigationController?.pushViewController(ViewOtherVC, animated: true)
+            ViewOtherVC.userID = passUserID
         }
     }
 }

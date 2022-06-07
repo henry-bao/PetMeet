@@ -15,7 +15,7 @@ class MyProfileViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     private let firedb = Firestore.firestore()
     private let fStorage = Storage.storage().reference()
     
-    final let catBreedList = ["Domestic Shorthair", "American Longhair", "Domestic Longhair", "Siamese", "Russian Blue", "Ragdoll", "Bombay", "Persian", "British Shorthair", "American Curl"]
+    final let catBreedList = ["Domestic Shorthair", "American Longhair", "Domestic Longhair", "Siamese", "Russian Blue", "Ragdoll", "Bombay", "Persian", "British Shorthair", "American Curl", "Nebelung"]
     final let dogBreedList = ["Siberian Husky", "Golden Retriever", "Labrador Retriever", "French Bulldog", "Beagle", "German Shepherd dog", "Poodle", "Yorkshire Terriers", "Shetland Sheepdog"]
     
     var firstName = ""
@@ -42,6 +42,7 @@ class MyProfileViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     @IBOutlet weak var confirmBtn: UIButton!
     @IBOutlet weak var petBreedField: UITextField!
     @IBOutlet weak var petPhotoImage: UIImageView!
+    @IBOutlet weak var uploadPhoto: UIButton!
     
     @IBAction func uploadPetPhoto(_ sender: Any) {
         let imagePicker = UIImagePickerController()
@@ -182,6 +183,7 @@ class MyProfileViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         petNameField.isUserInteractionEnabled = false
         petCategorySeg.isUserInteractionEnabled = false
         petBreedField.isUserInteractionEnabled = false
+        uploadPhoto.isEnabled = false
     }
     
     func enableUserInteraction() {
@@ -194,6 +196,7 @@ class MyProfileViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         petNameField.isUserInteractionEnabled = true
         petCategorySeg.isUserInteractionEnabled = true
         petBreedField.isUserInteractionEnabled = true
+        uploadPhoto.isEnabled = true
     }
     
     @IBAction func confirmBtnPressed(_ sender: Any) {
