@@ -45,6 +45,7 @@ class MatchViewController: UIViewController {
         }
         
         getData()
+        self.nameAndAgeButton.titleLabel?.text = "\(self.petname)  \(self.petage)yrs ℹ️"
         getPetNum()
         breedLabel.text = breed
         genderLabel.text = gender
