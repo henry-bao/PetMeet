@@ -66,7 +66,7 @@ class MatchViewController: UIViewController {
         db.collection("users").getDocuments { (snapshot, error) in
             if error == nil && snapshot != nil {
                 // go through all users
-                for i in 0...snapshot!.documents.count-1 {
+                for i in 0...self.userID.count-1 {
                     // go through all pets
                     db.collection("users").document(self.userID[i]).collection("pets").getDocuments { (snapshot, error) in
                         if error == nil && snapshot != nil {
@@ -145,10 +145,10 @@ class MatchViewController: UIViewController {
                 for i in 0...snapshot!.documents.count-1 {
                     let document = snapshot!.documents[i]
             
-//                    let currentUserID = Auth.auth().currentUser!.uid
-//                    if document.documentID != currentUserID {
+                    let currentUserID = Auth.auth().currentUser!.uid
+                    if document.documentID != currentUserID {
                         self.userID.append(document.documentID)
-//                    }
+                    }
                 }
                 
                 // fetch pet info
