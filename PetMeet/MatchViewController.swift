@@ -94,7 +94,7 @@ class MatchViewController: UIViewController {
     }
     
     @IBAction func likeButtonTouchUpInside(_ sender: Any) {
-        viewSwippedRight()
+        viewSwippedLeft()
         // write firebase data
         let db = Firestore.firestore()
         let currentUserID = Auth.auth().currentUser!.uid
@@ -123,7 +123,7 @@ class MatchViewController: UIViewController {
     }
 
     @IBAction func dislikeButtonTouchUpInside(_ sender: Any) {
-        viewSwippedLeft()
+        viewSwippedRight()
         // switch to next pet
         self.petIndex += 1
         
