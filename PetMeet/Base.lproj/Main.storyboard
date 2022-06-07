@@ -109,7 +109,7 @@
                                     <attributedString key="attributedTitle">
                                         <fragment content="Name + Age">
                                             <attributes>
-                                                <font key="NSFont" size="22" name="Helvetica"/>
+                                                <font key="NSFont" size="22" name="Helvetica-Bold"/>
                                                 <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                             </attributes>
                                         </fragment>
@@ -122,6 +122,9 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kSE-6i-xEd">
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <color key="backgroundColor" red="0.97254908080000002" green="0.84705877299999999" blue="0.8392156959" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="dc4-M0-72r"/>
+                                </constraints>
                                 <items>
                                     <barButtonItem title="PetMeet" id="Jkd-Jw-nil">
                                         <color key="tintColor" red="0.91976243260000001" green="0.36069523809999998" blue="0.3439754706" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -256,6 +259,9 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nR1-yq-dV6">
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <color key="backgroundColor" red="0.97254908080000002" green="0.84705877299999999" blue="0.8392156959" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="JIw-sw-v5j"/>
+                                </constraints>
                                 <items>
                                     <barButtonItem title="PetMeet" id="RBb-3C-IYK">
                                         <color key="tintColor" red="0.91976243260000001" green="0.36069523809999998" blue="0.3439754706" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -439,6 +445,9 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w1q-oI-04K">
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <color key="backgroundColor" red="0.97254908080000002" green="0.84705877299999999" blue="0.8392156959" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="OMQ-Ly-JbI"/>
+                                </constraints>
                                 <items>
                                     <barButtonItem title="PetMeet" id="C1z-XI-bLS">
                                         <color key="tintColor" red="0.91976243260000001" green="0.36069523809999998" blue="0.3439754706" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -723,6 +732,9 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MDb-VK-QUd">
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <color key="backgroundColor" red="0.97254908080000002" green="0.84705877299999999" blue="0.8392156959" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="3xL-rG-Qfj"/>
+                                </constraints>
                                 <items>
                                     <barButtonItem title="PetMeet" id="TIN-Ef-VXY">
                                         <color key="tintColor" red="0.91976243257522583" green="0.36069523813097387" blue="0.34397547064216" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
