@@ -762,7 +762,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1200"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileHolderThree" translatesAutoresizingMaskIntoConstraints="NO" id="bKh-m1-pRR">
-                                                <rect key="frame" x="132" y="70" width="150" height="150"/>
+                                                <rect key="frame" x="132" y="35" width="150" height="150"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="150" id="2cr-Zf-NCB"/>
                                                     <constraint firstAttribute="height" constant="150" id="HFl-Xc-Nrv"/>
@@ -899,10 +899,19 @@
                                                     <action selector="confirmBtnPressed:" destination="5Se-KA-6eM" eventType="touchUpInside" id="qbR-1y-BCS"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Mf-zM-h97">
+                                                <rect key="frame" x="167" y="212" width="80" height="31"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="tinted" title="Sign Out"/>
+                                                <connections>
+                                                    <action selector="signout:" destination="5Se-KA-6eM" eventType="touchUpInside" id="0xP-3e-pRj"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" red="1" green="0.9464862705" blue="0.97222083979999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="IAS-4m-hfP" firstAttribute="top" secondItem="7ww-kg-kyU" secondAttribute="bottom" constant="5" id="2pm-MJ-gDF"/>
+                                            <constraint firstItem="V4j-go-jMM" firstAttribute="top" secondItem="6Mf-zM-h97" secondAttribute="bottom" constant="27" id="6Ox-sd-NOt"/>
                                             <constraint firstAttribute="trailing" secondItem="JQN-vR-Db9" secondAttribute="trailing" constant="32" id="8Ak-XY-FQc"/>
                                             <constraint firstItem="X8o-zb-Dlb" firstAttribute="leading" secondItem="7Xb-Zc-nLC" secondAttribute="leading" constant="20" symbolic="YES" id="G6u-ei-inJ"/>
                                             <constraint firstItem="V4j-go-jMM" firstAttribute="leading" secondItem="7Xb-Zc-nLC" secondAttribute="leading" constant="20" id="IIP-TZ-CSI"/>
@@ -923,14 +932,16 @@
                                             <constraint firstAttribute="trailing" secondItem="zGL-sS-2ML" secondAttribute="trailing" constant="20" id="e5N-bo-Ahb"/>
                                             <constraint firstItem="G5g-8j-EVX" firstAttribute="leading" secondItem="7Xb-Zc-nLC" secondAttribute="leading" constant="20" id="fHp-lK-j7C"/>
                                             <constraint firstItem="JQN-vR-Db9" firstAttribute="top" secondItem="uHV-pP-naF" secondAttribute="bottom" constant="32" id="fMp-Ha-e81"/>
-                                            <constraint firstItem="bKh-m1-pRR" firstAttribute="top" secondItem="7Xb-Zc-nLC" secondAttribute="top" constant="70" id="h3X-6a-wjJ"/>
+                                            <constraint firstItem="bKh-m1-pRR" firstAttribute="top" secondItem="7Xb-Zc-nLC" secondAttribute="top" constant="35" id="h3X-6a-wjJ"/>
                                             <constraint firstItem="sNy-fZ-Xd6" firstAttribute="top" secondItem="O8N-Xp-YXW" secondAttribute="bottom" constant="8" symbolic="YES" id="i9Q-Lr-ryi"/>
+                                            <constraint firstItem="6Mf-zM-h97" firstAttribute="top" secondItem="bKh-m1-pRR" secondAttribute="bottom" constant="27" id="iPO-uh-hK1"/>
                                             <constraint firstItem="uHV-pP-naF" firstAttribute="leading" secondItem="7Xb-Zc-nLC" secondAttribute="leading" constant="20" id="iW9-yw-x3F"/>
                                             <constraint firstItem="zGL-sS-2ML" firstAttribute="leading" secondItem="7Xb-Zc-nLC" secondAttribute="leading" constant="20" symbolic="YES" id="jv6-Tj-GcT"/>
-                                            <constraint firstItem="V4j-go-jMM" firstAttribute="top" secondItem="bKh-m1-pRR" secondAttribute="bottom" constant="50" id="klZ-fA-QQc"/>
+                                            <constraint firstItem="V4j-go-jMM" firstAttribute="top" secondItem="bKh-m1-pRR" secondAttribute="bottom" constant="85" id="klZ-fA-QQc"/>
                                             <constraint firstItem="7ww-kg-kyU" firstAttribute="centerX" secondItem="7Xb-Zc-nLC" secondAttribute="centerX" id="nkz-9d-def"/>
                                             <constraint firstItem="sNy-fZ-Xd6" firstAttribute="leading" secondItem="7Xb-Zc-nLC" secondAttribute="leading" constant="20" id="stt-VU-J2q"/>
                                             <constraint firstAttribute="trailing" secondItem="G5g-8j-EVX" secondAttribute="trailing" constant="20" id="x0U-1b-NbT"/>
+                                            <constraint firstItem="6Mf-zM-h97" firstAttribute="centerX" secondItem="7Xb-Zc-nLC" secondAttribute="centerX" id="yXj-Pv-SmK"/>
                                         </constraints>
                                     </view>
                                 </subviews>

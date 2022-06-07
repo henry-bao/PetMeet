@@ -20,9 +20,30 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        setupView()
+        
+        // if user is already logged in, skip the login screen
+        if let user = Auth.auth().currentUser {
+            let uid = user.uid
+            let email = user.email
+            self.firedb.collection("users").document(uid).getDocument{ (document, error) in
+                if error == nil {
+                    if document != nil && document!.exists {
+                        let documentData = document!.data()
+                        if let tabVC = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") as? tabBarViewController {
+                            tabVC.firstName = (documentData!["first name"] as? String)!
+                            tabVC.lastName = (documentData!["last name"] as? String)!
+                            tabVC.email = email!
+                            tabVC.userID = uid
+                            tabVC.zipCode = documentData!["zip code"] as! String
+                            self.navigationController?.pushViewController(tabVC, animated: true)
+                        }
+                    }
+                }
+            }
+        } else {
+            setupView()
+        }
     }
-    
 }
 
 private extension ViewController {
@@ -148,7 +169,6 @@ extension ViewController: ASAuthorizationControllerDelegate {
                             firstName = documentData!["first name"] as? String
                             lastName = documentData!["last name"] as? String
                             zipCode = documentData!["zip code"] as! String
-//                            print("\(firstName!), \(lastName!), \(email!), \(userID!)")
                             self.hasAccount(firstName: firstName!, lastName: lastName!, email: email!, uid: userID!, zipCode: zipCode)
                         }
                     }
