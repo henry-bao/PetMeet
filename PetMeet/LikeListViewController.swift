@@ -103,8 +103,8 @@ class LikeListViewController: UIViewController, UITableViewDataSource, UITableVi
             return cell
             
         case 1:
-            let cell: LikeListTableViewCell = likeListTable.dequeueReusableCell(withIdentifier: "likeListCell") as! LikeListTableViewCell
             let userId = usersLikedMyPet[indexPath.row]
+            let cell: LikeListTableViewCell = likeListTable.dequeueReusableCell(withIdentifier: "likeListCell") as! LikeListTableViewCell
             firestore.collection("users").document(userId).collection("pets").getDocuments { (snapshot, error) in
                 if error == nil && snapshot != nil {
                     for j in 0...snapshot!.documents.count - 1 {
@@ -121,12 +121,14 @@ class LikeListViewController: UIViewController, UITableViewDataSource, UITableVi
                 }
             }
             return cell
+
         default:
             return UITableViewCell()
         }
     }
     
     private func loadUserData() {
+        userData = [:]
         let user = Auth.auth().currentUser
         if let user = user {
             let uid = user.uid
@@ -148,26 +150,24 @@ class LikeListViewController: UIViewController, UITableViewDataSource, UITableVi
     }
 
     private func getUsersLikedMyPet() {
-        let user = Auth.auth().currentUser
-        if let user = user {
-            let uid = user.uid
-            firestore.collection("users").document(uid).collection("pets").getDocuments { (snapshot, error) in
-                if error == nil && snapshot != nil {
-                    let petId = snapshot?.documents[0].documentID
-                    self.firestore.collection("users").getDocuments { (snapshot, error) in
-                        if error == nil && snapshot != nil {
-                             for i in 0...snapshot!.documents.count - 1 {
-                                 let userId = snapshot!.documents[i].documentID
-                                 if (snapshot!.documents[i].data()["like list"] as? [String])?.contains(petId!) ?? false {
-                                     self.usersLikedMyPet.append(userId)
-                                 }
+        self.usersLikedMyPet = []
+        let uid = (Auth.auth().currentUser?.uid)!
+        firestore.collection("users").document(uid).collection("pets").getDocuments { (snapshot, error) in
+            if error == nil && snapshot != nil {
+                let petId = snapshot?.documents[0].documentID
+                self.firestore.collection("users").getDocuments { (snapshot, error) in
+                    if error == nil && snapshot != nil {
+                         for i in 0...snapshot!.documents.count - 1 {
+                             let userId = snapshot!.documents[i].documentID
+                             if (snapshot!.documents[i].data()["like list"] as? [String])?.contains(petId!) ?? false {
+                                 self.usersLikedMyPet.append(userId)
+                                 self.likeListTable.reloadData()
+                                 self.removeLoadingScreen()
                              }
-                        }
+                         }
                     }
                 }
             }
-            self.likeListTable.reloadData()
-            self.removeLoadingScreen()
         }
     }
 
