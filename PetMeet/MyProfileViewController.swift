@@ -14,7 +14,8 @@ import FirebaseStorage
 class MyProfileViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     private let firedb = Firestore.firestore()
     private let fStorage = Storage.storage().reference()
-    
+    let currentUserID = Auth.auth().currentUser!.uid
+
     final let catBreedList = ["Domestic Shorthair", "American Longhair", "Domestic Longhair", "Siamese", "Russian Blue", "Ragdoll", "Bombay", "Persian", "British Shorthair", "American Curl", "Nebelung"]
     final let dogBreedList = ["Siberian Husky", "Golden Retriever", "Labrador Retriever", "French Bulldog", "Beagle", "German Shepherd dog", "Poodle", "Yorkshire Terriers", "Shetland Sheepdog"]
     
@@ -121,17 +122,24 @@ class MyProfileViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     
     
     func displayUserInfo() {
-        let tabBarVC = tabBarController as! tabBarViewController
-        firstName = tabBarVC.firstName
-        lastName = tabBarVC.lastName
-        email = tabBarVC.email
-        userID = tabBarVC.userID
-        zipCode = tabBarVC.zipCode
-        userEmailField.text = email
-        userFirstNameField.text = firstName
-        userLastNameField.text = lastName
-        userZipCodeField.text = zipCode
-        firedb.collection("users").document(userID).collection("pets").getDocuments { (snapshot, error) in
+//        let tabBarVC = tabBarController as! tabBarViewController
+        self.firedb.collection("users").document(currentUserID).getDocument{ (document, error) in
+            if error == nil {
+                if document != nil && document!.exists {
+                    let documentData = document!.data()
+                    self.firstName = documentData!["first name"] as! String
+                    self.lastName = documentData!["last name"] as! String
+                    self.zipCode = documentData!["zip code"] as! String
+                    self.email = documentData!["email"] as! String
+                    self.userEmailField.text = self.email
+                    self.userFirstNameField.text = self.firstName
+                    self.userLastNameField.text = self.lastName
+                    self.userZipCodeField.text = self.zipCode
+                }
+            }
+        }
+        
+        firedb.collection("users").document(currentUserID).collection("pets").getDocuments { (snapshot, error) in
             if error == nil && snapshot != nil{
                 let document = snapshot!.documents[0]
                 let docuData = document.data()
