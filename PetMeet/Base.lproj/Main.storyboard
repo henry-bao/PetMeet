@@ -97,13 +97,12 @@
                                     <action selector="dislikeButtonTouchUpInside:" destination="Aqc-EC-XKQ" eventType="touchUpInside" id="Csr-UE-j2a"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M2C-OJ-dtH">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M2C-OJ-dtH">
                                 <rect key="frame" x="28" y="688.5" width="199" height="39.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="199" id="hsa-PS-o6Y"/>
                                 </constraints>
                                 <color key="tintColor" red="0.90935653448104858" green="0.48349708318710327" blue="0.4733436107635498" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" subtitle="" titleAlignment="automatic">
                                     <backgroundConfiguration key="background"/>
                                     <attributedString key="attributedTitle">
