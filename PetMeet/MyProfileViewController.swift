@@ -16,8 +16,8 @@ class MyProfileViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     private let fStorage = Storage.storage().reference()
     let currentUserID = Auth.auth().currentUser!.uid
 
-    final let catBreedList = ["Domestic Shorthair", "American Longhair", "Domestic Longhair", "Siamese", "Russian Blue", "Ragdoll", "Bombay", "Persian", "British Shorthair", "American Curl", "Nebelung"]
-    final let dogBreedList = ["Siberian Husky", "Golden Retriever", "Labrador Retriever", "French Bulldog", "Beagle", "German Shepherd dog", "Poodle", "Yorkshire Terriers", "Shetland Sheepdog"]
+    final let catBreedList = ["Domestic Shorthair", "American Longhair", "Domestic Longhair", "Siamese", "Russian Blue", "Ragdoll", "Bombay", "Persian", "British Shorthair", "American Curl", "Nebelung", "Other"]
+    final let dogBreedList = ["Siberian Husky", "Golden Retriever", "Labrador Retriever", "French Bulldog", "Beagle", "German Shepherd dog", "Poodle", "Yorkshire Terriers", "Shetland Sheepdog", "Other"]
     
     var firstName = ""
     var lastName = ""
@@ -238,18 +238,17 @@ class MyProfileViewController: UIViewController, UIPickerViewDelegate, UIPickerV
             }
         }
     }
-//    @IBAction func signout(_ sender: Any) {
-//        do {
-//            try
-//            Auth.auth().signOut()
-//        } catch {
-//            print("error signing out")
-//        }
-//        if let signInVC = storyboard?.instantiateViewController(withIdentifier: "signInVC") as? ViewController {
-//
-//            self.navigationController?.pushViewController(signInVC, animated: true)
-//        }
-//    }
+    @IBAction func signout(_ sender: Any) {
+        do {
+            try
+            Auth.auth().signOut()
+        } catch {
+            print("error signing out")
+        }
+        if let signInVC = storyboard?.instantiateViewController(withIdentifier: "signInVC") as? ViewController {
+            self.navigationController?.pushViewController(signInVC, animated: true)
+        }
+    }
     
     
     override func viewDidLoad() {

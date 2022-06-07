@@ -65,7 +65,6 @@ class LikeListViewController: UIViewController, UITableViewDataSource, UITableVi
         if let ViewOtherVC = storyboard?.instantiateViewController(withIdentifier: "ViewOtherVC") as? ViewOtherProfileViewController {
             self.navigationController?.pushViewController(ViewOtherVC, animated: true)
             ViewOtherVC.userID = cell.userId
-            ViewOtherVC.selectedIndex = self.tabBarController?.selectedIndex ?? 0
         }
     }
     
@@ -104,25 +103,28 @@ class LikeListViewController: UIViewController, UITableViewDataSource, UITableVi
             return cell
             
         case 1:
-            let userId = usersLikedMyPet[indexPath.row]
-            let cell: LikeListTableViewCell = likeListTable.dequeueReusableCell(withIdentifier: "likeListCell") as! LikeListTableViewCell
-            firestore.collection("users").document(userId).collection("pets").getDocuments { (snapshot, error) in
-                if error == nil && snapshot != nil {
-                    for j in 0...snapshot!.documents.count - 1 {
-                        cell.userId = userId
-                        cell.nameLabel.text = (snapshot!.documents[j].data()["name"] as? String)!
-                        cell.ageLabel.text = "\((snapshot!.documents[j].data()["age"] as? String)!) years old"
-                        self.storage.child("images/\(userId).png").getData(maxSize: 3 * 1024 * 1024) { (data, error) in
-                            if error == nil {
-                                let image = UIImage(data: data!)
-                                cell.petImage.image = image
+            if usersLikedMyPet.count > 0 {
+                let userId = usersLikedMyPet[indexPath.row]
+                let cell: LikeListTableViewCell = likeListTable.dequeueReusableCell(withIdentifier: "likeListCell") as! LikeListTableViewCell
+                firestore.collection("users").document(userId).collection("pets").getDocuments { (snapshot, error) in
+                    if error == nil && snapshot != nil {
+                        for j in 0...snapshot!.documents.count - 1 {
+                            cell.userId = userId
+                            cell.nameLabel.text = (snapshot!.documents[j].data()["name"] as? String)!
+                            cell.ageLabel.text = "\((snapshot!.documents[j].data()["age"] as? String)!) years old"
+                            self.storage.child("images/\(userId).png").getData(maxSize: 3 * 1024 * 1024) { (data, error) in
+                                if error == nil {
+                                    let image = UIImage(data: data!)
+                                    cell.petImage.image = image
+                                }
                             }
                         }
                     }
                 }
+                return cell
+            } else {
+                return UITableViewCell()
             }
-            return cell
-
         default:
             return UITableViewCell()
         }
