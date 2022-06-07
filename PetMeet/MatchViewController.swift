@@ -228,7 +228,7 @@ class MatchViewController: UIViewController {
 }
 
 extension UIView {
-    func leftToRightAnimation(duration: TimeInterval = 0.3, completionDelegate: AnyObject? = nil) {
+    func leftToRightAnimation(duration: TimeInterval = 0.8, completionDelegate: AnyObject? = nil) {
         // Create a CATransition object
         let leftToRightTransition = CATransition()
         
@@ -247,7 +247,7 @@ extension UIView {
         self.layer.add(leftToRightTransition, forKey: "leftToRightTransition")
     }
     
-    func rightToLeftAnimation(duration: TimeInterval = 0.3, completionDelegate: AnyObject? = nil) {
+    func rightToLeftAnimation(duration: TimeInterval = 0.8, completionDelegate: AnyObject? = nil) {
         // Create a CATransition object
         let rightToLeftTransition = CATransition()
         
