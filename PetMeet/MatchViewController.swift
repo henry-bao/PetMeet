@@ -136,22 +136,22 @@ class MatchViewController: UIViewController {
             }
         } else {
             // display next pet info
-            self.petIndex += 1
             getData()
+            self.petIndex += 1
         }
     }
 
     @IBAction func dislikeButtonTouchUpInside(_ sender: Any) {
         viewSwippedRight()
-        // switch to next pet
-        self.petIndex += 1
         
+        // switch to next pet
         if self.petIndex >=  self.petNum - 1 {
             let alert = UIAlertController(title: "You have viewed all the pets.", message: "See what you liked in the Like List!", preferredStyle: .alert)
                      alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in }))
                      self.present(alert, animated: true, completion: { NSLog("The completion handler fired") })
         } else {
             getData()
+            self.petIndex += 1
         }
     }
     
