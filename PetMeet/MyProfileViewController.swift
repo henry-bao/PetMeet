@@ -22,7 +22,6 @@ class MyProfileViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     var firstName = ""
     var lastName = ""
     var email = ""
-    var userID = ""
     var zipCode = ""
     var petName = ""
     var petAge = ""
@@ -60,18 +59,18 @@ class MyProfileViewController: UIViewController, UIPickerViewDelegate, UIPickerV
                 return
             }
                         
-            fStorage.child("images/\(self.userID).png").putData(imageData, metadata: nil, completion: { _, error in
+            fStorage.child("images/\(self.currentUserID).png").putData(imageData, metadata: nil, completion: { _, error in
                 guard error == nil else {
                     print("Failed to upload iamge")
                     return
                 }
-                self.fStorage.child("images/\(self.userID).png").downloadURL(completion: {url, error in
+                self.fStorage.child("images/\(self.currentUserID).png").downloadURL(completion: {url, error in
                     guard let url = url, error == nil else {
                         return
                     }
                     let urlString = url.absoluteString
                     print("url: \(urlString)")
-                    UserDefaults.standard.set(urlString, forKey: "\(self.userID)")
+                    UserDefaults.standard.set(urlString, forKey: "\(self.currentUserID)")
                 })
             })
             
@@ -166,7 +165,7 @@ class MyProfileViewController: UIViewController, UIPickerViewDelegate, UIPickerV
             }
         }
 
-        guard let urlString = UserDefaults.standard.value(forKey: "\(self.userID)") as? String, let url = URL(string: urlString) else {
+        guard let urlString = UserDefaults.standard.value(forKey: "\(self.currentUserID)") as? String, let url = URL(string: urlString) else {
             return
         }
         URLSession.shared.dataTask(with: url, completionHandler: { data, _, error in
@@ -231,8 +230,8 @@ class MyProfileViewController: UIViewController, UIPickerViewDelegate, UIPickerV
             newPetGender = "male"
         }
         newPetBreed = petBreedField.text!
-        firedb.collection("users").document(userID).setData(["email": newUserEmail!, "first name": newUserFirstName!, "last name": newUserLastName!, "zip code": newUserZipCode!])
-        firedb.collection("users").document(userID).collection("pets").getDocuments{ (snapshot, error) in
+        firedb.collection("users").document(currentUserID).setData(["email": newUserEmail!, "first name": newUserFirstName!, "last name": newUserLastName!, "zip code": newUserZipCode!])
+        firedb.collection("users").document(currentUserID).collection("pets").getDocuments{ (snapshot, error) in
             if error == nil && snapshot != nil {
                 let document = snapshot!.documents[0]
                 document.reference.setData(["age": newPetAge!, "breed": newPetBreed, "category": newPetCategory, "gender": newPetGender, "name": newPetName!])
