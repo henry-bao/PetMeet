@@ -84,9 +84,25 @@ class MatchViewController: UIViewController {
         if let swipeGesture = sender {
             switch swipeGesture.direction {
             case UISwipeGestureRecognizer.Direction.right:
-                likeButtonTouchUpInside(sender!)
+                if self.petIndex >=  self.petNum - 1 {
+                    for gesture in petPhotoImage.gestureRecognizers! {
+                        gesture.isEnabled = false
+                        self.likeButton.isHidden = true
+                        self.dislikeButton.isHidden = true
+                    }
+                } else {
+                    likeButtonTouchUpInside(sender!)
+                }
             case UISwipeGestureRecognizer.Direction.left:
-                dislikeButtonTouchUpInside(sender!)
+                if self.petIndex >=  self.petNum - 1 {
+                    for gesture in petPhotoImage.gestureRecognizers! {
+                        gesture.isEnabled = false
+                        self.likeButton.isHidden = true
+                        self.dislikeButton.isHidden = true
+                    }
+                } else {
+                    dislikeButtonTouchUpInside(sender!)
+                }
             default:
                 break
             }
@@ -94,7 +110,7 @@ class MatchViewController: UIViewController {
     }
     
     @IBAction func likeButtonTouchUpInside(_ sender: Any) {
-        viewSwippedRight()
+        viewSwippedLeft()
         // write firebase data
         let db = Firestore.firestore()
         let currentUserID = Auth.auth().currentUser!.uid
@@ -115,6 +131,9 @@ class MatchViewController: UIViewController {
                      self.present(alert, animated: true, completion: { NSLog("The completion handler fired") })
             self.likeButton.isHidden = true
             self.dislikeButton.isHidden = true
+            for gesture in petPhotoImage.gestureRecognizers! {
+                gesture.isEnabled = false
+            }
         } else {
             // display next pet info
             self.petIndex += 1
@@ -123,7 +142,7 @@ class MatchViewController: UIViewController {
     }
 
     @IBAction func dislikeButtonTouchUpInside(_ sender: Any) {
-        viewSwippedLeft()
+        viewSwippedRight()
         // switch to next pet
         self.petIndex += 1
         
