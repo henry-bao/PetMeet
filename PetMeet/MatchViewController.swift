@@ -97,7 +97,6 @@ class MatchViewController: UIViewController {
         // write firebase data
         let db = Firestore.firestore()
         let currentUserID = Auth.auth().currentUser!.uid
-        
         db.collection("users").document(self.userID[self.petIndex]).collection("pets").getDocuments { (snapshot, error) in
             if error == nil && snapshot != nil {
                 let document = snapshot!.documents[0]
