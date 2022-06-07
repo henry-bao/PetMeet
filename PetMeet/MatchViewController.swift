@@ -45,8 +45,10 @@ class MatchViewController: UIViewController {
         }
         
         getData()
-        nameAndAgeButton.titleLabel?.text = "\(petname)  \(petage)yrs ℹ️"
-        nameAndAgeButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        let nameAgeButtonTitle = NSMutableAttributedString(string: "\(self.petname)  \(self.petage)yrs", attributes: [
+            NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 22)
+        ])
+        self.nameAndAgeButton.setAttributedTitle(nameAgeButtonTitle, for: .normal)
         getPetNum()
         breedLabel.text = breed
         genderLabel.text = gender
@@ -73,10 +75,8 @@ class MatchViewController: UIViewController {
                         if error == nil && snapshot != nil {
                             self.petNum += 1
                         }
-                        //print(self.petNum)
                     }
                 }
-                //print("*****\(self.petNum)")
             }
         }
     }
@@ -183,8 +183,11 @@ class MatchViewController: UIViewController {
                         self.petage = docuData["age"] as! String
                         self.breed = docuData["breed"] as! String
                         self.gender = docuData["gender"] as! String
-                        self.nameAndAgeButton.titleLabel?.text = "\(self.petname)  \(self.petage)yrs ℹ️"
-                        self.nameAndAgeButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+                        let nameAgeButtonTitle = NSMutableAttributedString(string: "\(self.petname) (\(self.petage)yrs)", attributes: [
+                            NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 22),
+                            NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue
+                        ])
+                        self.nameAndAgeButton.setAttributedTitle(nameAgeButtonTitle, for: .normal)
                         self.breedLabel.text = self.breed
                         self.genderLabel.text = self.gender
                         self.passUserID = self.userID[self.petIndex]
