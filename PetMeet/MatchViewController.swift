@@ -45,7 +45,7 @@ class MatchViewController: UIViewController {
         }
         
         getData()
-        nameAndAgeButton.setAttributedTitle(NSAttributedString(string: "\(petname)  \(petage)yrs ℹ️"), for: .normal)
+        nameAndAgeButton.titleLabel?.text = "\(petname)  \(petage)yrs ℹ️"
         nameAndAgeButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         getPetNum()
         breedLabel.text = breed
@@ -183,7 +183,7 @@ class MatchViewController: UIViewController {
                         self.petage = docuData["age"] as! String
                         self.breed = docuData["breed"] as! String
                         self.gender = docuData["gender"] as! String
-                        self.nameAndAgeButton.setAttributedTitle(NSAttributedString(string: "\(self.petname)  \(self.petage)yrs ℹ️"), for: .normal)
+                        self.nameAndAgeButton.titleLabel?.text = "\(self.petname)  \(self.petage)yrs ℹ️"
                         self.nameAndAgeButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
                         self.breedLabel.text = self.breed
                         self.genderLabel.text = self.gender
