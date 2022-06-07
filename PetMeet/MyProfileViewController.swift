@@ -230,11 +230,11 @@ class MyProfileViewController: UIViewController, UIPickerViewDelegate, UIPickerV
             newPetGender = "male"
         }
         newPetBreed = petBreedField.text!
-        firedb.collection("users").document(currentUserID).setData(["email": newUserEmail!, "first name": newUserFirstName!, "last name": newUserLastName!, "zip code": newUserZipCode!])
+        firedb.collection("users").document(currentUserID).updateData(["email": newUserEmail!, "first name": newUserFirstName!, "last name": newUserLastName!, "zip code": newUserZipCode!])
         firedb.collection("users").document(currentUserID).collection("pets").getDocuments{ (snapshot, error) in
             if error == nil && snapshot != nil {
                 let document = snapshot!.documents[0]
-                document.reference.setData(["age": newPetAge!, "breed": newPetBreed, "category": newPetCategory, "gender": newPetGender, "name": newPetName!])
+                document.reference.updateData(["age": newPetAge!, "breed": newPetBreed, "category": newPetCategory, "gender": newPetGender, "name": newPetName!])
             }
         }
     }
