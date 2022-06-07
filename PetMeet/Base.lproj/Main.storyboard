@@ -62,13 +62,13 @@
                                 </connections>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Breed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UX7-Ya-ZMG">
-                                <rect key="frame" x="40" y="736.5" width="46" height="20.5"/>
+                                <rect key="frame" x="40" y="737" width="46" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.90935653448104858" green="0.48349708318710327" blue="0.4733436107635498" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="highlightedColor" red="0.90935653448104858" green="0.48349708318710327" blue="0.4733436107635498" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gender" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dt6-Cz-65a">
-                                <rect key="frame" x="40" y="772" width="57" height="21"/>
+                                <rect key="frame" x="40" y="772.5" width="57" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.90935653448104858" green="0.48349708318710327" blue="0.4733436107635498" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -80,7 +80,7 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="YL0-bI-uo3"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="like" title=" " buttonSize="medium"/>
+                                <buttonConfiguration key="configuration" style="plain" image="unfilledLike" title=" " buttonSize="medium"/>
                                 <connections>
                                     <action selector="likeButtonTouchUpInside:" destination="Aqc-EC-XKQ" eventType="touchUpInside" id="2me-rv-QHJ"/>
                                 </connections>
@@ -97,20 +97,19 @@
                                     <action selector="dislikeButtonTouchUpInside:" destination="Aqc-EC-XKQ" eventType="touchUpInside" id="Csr-UE-j2a"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M2C-OJ-dtH">
-                                <rect key="frame" x="28" y="688.5" width="199" height="39.5"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M2C-OJ-dtH">
+                                <rect key="frame" x="28" y="688.5" width="280" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="199" id="hsa-PS-o6Y"/>
+                                    <constraint firstAttribute="width" constant="280" id="hor-pJ-GUG"/>
                                 </constraints>
                                 <color key="tintColor" red="0.90935653448104858" green="0.48349708318710327" blue="0.4733436107635498" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" subtitle="" titleAlignment="automatic">
                                     <backgroundConfiguration key="background"/>
                                     <attributedString key="attributedTitle">
                                         <fragment content="Name + Age">
                                             <attributes>
                                                 <font key="NSFont" size="22" name="Helvetica-Bold"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                             </attributes>
                                         </fragment>
                                     </attributedString>
@@ -145,13 +144,13 @@
                             <constraint firstItem="kSE-6i-xEd" firstAttribute="leading" secondItem="iAg-RO-LYu" secondAttribute="leading" id="ASv-nB-ahZ"/>
                             <constraint firstItem="dt6-Cz-65a" firstAttribute="leading" secondItem="iAg-RO-LYu" secondAttribute="leading" constant="40" id="Dix-gA-dEB"/>
                             <constraint firstItem="iAg-RO-LYu" firstAttribute="trailing" secondItem="kSE-6i-xEd" secondAttribute="trailing" id="MAc-vb-mPr"/>
-                            <constraint firstItem="iAg-RO-LYu" firstAttribute="bottom" secondItem="dt6-Cz-65a" secondAttribute="bottom" constant="20" id="MWM-ap-9es"/>
                             <constraint firstItem="UX7-Ya-ZMG" firstAttribute="top" secondItem="M2C-OJ-dtH" secondAttribute="bottom" constant="8.5" id="Npw-5C-WFn"/>
                             <constraint firstItem="iAg-RO-LYu" firstAttribute="trailing" secondItem="Wpe-LZ-flZ" secondAttribute="trailing" constant="20" id="OdU-GS-4rP"/>
                             <constraint firstItem="8e7-co-8lZ" firstAttribute="leading" secondItem="iAg-RO-LYu" secondAttribute="leading" id="Scf-Ey-fmt"/>
                             <constraint firstItem="kSE-6i-xEd" firstAttribute="top" secondItem="iAg-RO-LYu" secondAttribute="top" id="TSX-9I-fcZ"/>
                             <constraint firstItem="dGf-Mf-X8L" firstAttribute="top" secondItem="Wpe-LZ-flZ" secondAttribute="bottom" constant="30" id="VBV-c0-g6x"/>
                             <constraint firstItem="iAg-RO-LYu" firstAttribute="bottom" secondItem="dGf-Mf-X8L" secondAttribute="bottom" constant="20" id="i3L-iL-Lyl"/>
+                            <constraint firstItem="M2C-OJ-dtH" firstAttribute="top" secondItem="8e7-co-8lZ" secondAttribute="bottom" constant="25.5" id="poV-3N-Gl3"/>
                             <constraint firstItem="8e7-co-8lZ" firstAttribute="top" secondItem="kSE-6i-xEd" secondAttribute="bottom" id="re2-PF-RzZ"/>
                             <constraint firstItem="M2C-OJ-dtH" firstAttribute="leading" secondItem="UX7-Ya-ZMG" secondAttribute="leading" constant="-12" id="roO-6r-XOx"/>
                             <constraint firstItem="dt6-Cz-65a" firstAttribute="top" secondItem="UX7-Ya-ZMG" secondAttribute="bottom" constant="15" id="sCg-PT-V4i"/>
@@ -159,7 +158,6 @@
                             <constraint firstItem="UX7-Ya-ZMG" firstAttribute="leading" secondItem="iAg-RO-LYu" secondAttribute="leading" constant="40" id="sZB-9A-LIE"/>
                             <constraint firstItem="dGf-Mf-X8L" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="UX7-Ya-ZMG" secondAttribute="trailing" constant="8" symbolic="YES" id="tVD-Ze-fZF"/>
                             <constraint firstItem="iAg-RO-LYu" firstAttribute="trailing" secondItem="8e7-co-8lZ" secondAttribute="trailing" id="vnR-im-hTn"/>
-                            <constraint firstItem="Wpe-LZ-flZ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="M2C-OJ-dtH" secondAttribute="trailing" constant="5" id="zBE-0r-0kg"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="oSb-1g-9gx" appends="YES" id="0X6-HD-1mQ"/>
@@ -183,7 +181,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="883" y="1172"/>
+            <point key="canvasLocation" x="882.60869565217399" y="1171.875"/>
         </scene>
         <!--likes-->
         <scene sceneID="MMQ-YS-2bI">
@@ -985,12 +983,12 @@
         <image name="PeetMeet" width="496" height="94"/>
         <image name="dislike" width="50" height="50"/>
         <image name="find" width="32" height="32"/>
-        <image name="like" width="50" height="50"/>
         <image name="likeList" width="32" height="32"/>
         <image name="login" width="297" height="295"/>
         <image name="placeholder" width="512" height="512"/>
         <image name="profile" width="32" height="32"/>
         <image name="profileHolderThree" width="512" height="512"/>
+        <image name="unfilledLike" width="50" height="50"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

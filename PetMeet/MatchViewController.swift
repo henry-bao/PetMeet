@@ -45,8 +45,8 @@ class MatchViewController: UIViewController {
         }
         
         getData()
+        self.nameAndAgeButton.titleLabel?.text = "\(self.petname)  \(self.petage)yrs ℹ️"
         getPetNum()
-        nameAndAgeButton.setAttributedTitle(NSAttributedString(string: "\(petname)  \(petage)yrs"), for: .normal)
         breedLabel.text = breed
         genderLabel.text = gender
         
@@ -84,9 +84,25 @@ class MatchViewController: UIViewController {
         if let swipeGesture = sender {
             switch swipeGesture.direction {
             case UISwipeGestureRecognizer.Direction.right:
-                likeButtonTouchUpInside(sender!)
+                if self.petIndex >=  self.petNum - 1 {
+                    for gesture in petPhotoImage.gestureRecognizers! {
+                        gesture.isEnabled = false
+                        self.likeButton.isHidden = true
+                        self.dislikeButton.isHidden = true
+                    }
+                } else {
+                    likeButtonTouchUpInside(sender!)
+                }
             case UISwipeGestureRecognizer.Direction.left:
-                dislikeButtonTouchUpInside(sender!)
+                if self.petIndex >=  self.petNum - 1 {
+                    for gesture in petPhotoImage.gestureRecognizers! {
+                        gesture.isEnabled = false
+                        self.likeButton.isHidden = true
+                        self.dislikeButton.isHidden = true
+                    }
+                } else {
+                    dislikeButtonTouchUpInside(sender!)
+                }
             default:
                 break
             }
@@ -94,6 +110,7 @@ class MatchViewController: UIViewController {
     }
     
     @IBAction func likeButtonTouchUpInside(_ sender: Any) {
+        viewSwippedLeft()
         // write firebase data
         let db = Firestore.firestore()
         let currentUserID = Auth.auth().currentUser!.uid
@@ -113,6 +130,9 @@ class MatchViewController: UIViewController {
                      self.present(alert, animated: true, completion: { NSLog("The completion handler fired") })
             self.likeButton.isHidden = true
             self.dislikeButton.isHidden = true
+            for gesture in petPhotoImage.gestureRecognizers! {
+                gesture.isEnabled = false
+            }
         } else {
             // display next pet info
             self.petIndex += 1
@@ -121,6 +141,7 @@ class MatchViewController: UIViewController {
     }
 
     @IBAction func dislikeButtonTouchUpInside(_ sender: Any) {
+        viewSwippedRight()
         // switch to next pet
         self.petIndex += 1
         
@@ -160,7 +181,8 @@ class MatchViewController: UIViewController {
                         self.petage = docuData["age"] as! String
                         self.breed = docuData["breed"] as! String
                         self.gender = docuData["gender"] as! String
-                        self.nameAndAgeButton.setAttributedTitle(NSAttributedString(string: "\(self.petname)  \(self.petage)yrs"), for: .normal)
+                        self.nameAndAgeButton.titleLabel?.text = "\(self.petname)  \(self.petage)yrs ℹ️"
+                        self.nameAndAgeButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
                         self.breedLabel.text = self.breed
                         self.genderLabel.text = self.gender
                         self.passUserID = self.userID[self.petIndex]
@@ -191,5 +213,53 @@ class MatchViewController: UIViewController {
             ViewOtherVC.userID = passUserID
             ViewOtherVC.selectedIndex = self.tabBarController?.selectedIndex ?? 0
         }
+    }
+    
+    func viewSwippedRight() {
+        petPhotoImage.leftToRightAnimation()
+    }
+    
+    func viewSwippedLeft() {
+        petPhotoImage.rightToLeftAnimation()
+    }
+}
+
+extension UIView {
+    func leftToRightAnimation(duration: TimeInterval = 0.3, completionDelegate: AnyObject? = nil) {
+        // Create a CATransition object
+        let leftToRightTransition = CATransition()
+        
+        // Set its callback delegate to the completionDelegate that was provided
+        if let delegate: AnyObject = completionDelegate {
+            leftToRightTransition.delegate = (delegate as! CAAnimationDelegate)
+        }
+        
+        leftToRightTransition.type = CATransitionType.push
+        leftToRightTransition.subtype = CATransitionSubtype.fromRight
+        leftToRightTransition.duration = duration
+        leftToRightTransition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        leftToRightTransition.fillMode = CAMediaTimingFillMode.removed
+        
+        // Add the animation to the View's layer
+        self.layer.add(leftToRightTransition, forKey: "leftToRightTransition")
+    }
+    
+    func rightToLeftAnimation(duration: TimeInterval = 0.3, completionDelegate: AnyObject? = nil) {
+        // Create a CATransition object
+        let rightToLeftTransition = CATransition()
+        
+        // Set its callback delegate to the completionDelegate that was provided
+        if let delegate: AnyObject = completionDelegate {
+            rightToLeftTransition.delegate = (delegate as! CAAnimationDelegate)
+        }
+        
+        rightToLeftTransition.type = CATransitionType.push
+        rightToLeftTransition.subtype = CATransitionSubtype.fromLeft
+        rightToLeftTransition.duration = duration
+        rightToLeftTransition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        rightToLeftTransition.fillMode = CAMediaTimingFillMode.removed
+        
+        // Add the animation to the View's layer
+        self.layer.add(rightToLeftTransition, forKey: "rightToLeftTransition")
     }
 }
