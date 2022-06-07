@@ -34,6 +34,8 @@ class ViewOtherProfileViewController: UIViewController {
     var lastName = ""
     var userID = ""
     
+    var selectedIndex = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchPetInfo()
@@ -89,9 +91,11 @@ class ViewOtherProfileViewController: UIViewController {
         }
     
     @IBAction func backBtn(_ sender: Any) {
-        if let matchVC = storyboard?.instantiateViewController(withIdentifier: "TabBarController") as? tabBarViewController {
-            self.navigationController?.pushViewController(matchVC, animated: true)
+        if let tabBarController = storyboard?.instantiateViewController(withIdentifier: "TabBarController") as? tabBarViewController {
+            self.navigationController?.pushViewController(tabBarController, animated: true)
+            tabBarController.selectedIndex = selectedIndex
         }
+        
 //        let matchVC = self.storyboard?.instantiateViewController(withIdentifier: "matchVC") as! MatchViewController
 
       // You can create your own animation

@@ -190,6 +190,7 @@ class MatchViewController: UIViewController {
         if let ViewOtherVC = storyboard?.instantiateViewController(withIdentifier: "ViewOtherVC") as? ViewOtherProfileViewController {
             self.navigationController?.pushViewController(ViewOtherVC, animated: true)
             ViewOtherVC.userID = passUserID
+            ViewOtherVC.selectedIndex = self.tabBarController?.selectedIndex ?? 0
         }
     }
 }
