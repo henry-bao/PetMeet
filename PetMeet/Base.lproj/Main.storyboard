@@ -122,6 +122,9 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kSE-6i-xEd">
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <color key="backgroundColor" red="0.97254908080000002" green="0.84705877299999999" blue="0.8392156959" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="ASC-bF-eCd"/>
+                                </constraints>
                                 <items>
                                     <barButtonItem title="PetMeet" id="Jkd-Jw-nil">
                                         <color key="tintColor" red="0.91976243260000001" green="0.36069523809999998" blue="0.3439754706" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

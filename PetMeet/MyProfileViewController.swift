@@ -254,7 +254,8 @@ class MyProfileViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        userZipCodeField.keyboardType = .numberPad
+        petAgeField.keyboardType = .numberPad
         petBreedPickerView.delegate = self
         petBreedPickerView.dataSource = self
         petBreedField.inputView = petBreedPickerView
