@@ -162,13 +162,13 @@ class LikeListViewController: UIViewController, UITableViewDataSource, UITableVi
                              if (snapshot!.documents[i].data()["like list"] as? [String])?.contains(petId!) ?? false {
                                  self.usersLikedMyPet.append(userId)
                                  self.likeListTable.reloadData()
-                                 self.removeLoadingScreen()
                              }
                          }
                     }
                 }
             }
         }
+        self.removeLoadingScreen()
     }
 
     
