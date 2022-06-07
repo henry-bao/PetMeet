@@ -64,6 +64,7 @@ class LikeListViewController: UIViewController, UITableViewDataSource, UITableVi
         let cell = tableView.cellForRow(at: indexPath) as! LikeListTableViewCell
         if let ViewOtherVC = storyboard?.instantiateViewController(withIdentifier: "ViewOtherVC") as? ViewOtherProfileViewController {
             ViewOtherVC.userID = cell.userId
+            ViewOtherVC.selectedIndex = self.tabBarController?.selectedIndex ?? 0
             self.navigationController?.pushViewController(ViewOtherVC, animated: true)
         }
     }
