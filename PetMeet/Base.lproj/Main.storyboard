@@ -97,7 +97,7 @@
                                     <action selector="dislikeButtonTouchUpInside:" destination="Aqc-EC-XKQ" eventType="touchUpInside" id="Csr-UE-j2a"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M2C-OJ-dtH">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M2C-OJ-dtH">
                                 <rect key="frame" x="28" y="688.5" width="199" height="39.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="199" id="hsa-PS-o6Y"/>
@@ -109,7 +109,7 @@
                                         <fragment content="Name + Age">
                                             <attributes>
                                                 <font key="NSFont" size="22" name="Helvetica-Bold"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                             </attributes>
                                         </fragment>
                                     </attributedString>
@@ -144,13 +144,13 @@
                             <constraint firstItem="kSE-6i-xEd" firstAttribute="leading" secondItem="iAg-RO-LYu" secondAttribute="leading" id="ASv-nB-ahZ"/>
                             <constraint firstItem="dt6-Cz-65a" firstAttribute="leading" secondItem="iAg-RO-LYu" secondAttribute="leading" constant="40" id="Dix-gA-dEB"/>
                             <constraint firstItem="iAg-RO-LYu" firstAttribute="trailing" secondItem="kSE-6i-xEd" secondAttribute="trailing" id="MAc-vb-mPr"/>
-                            <constraint firstItem="iAg-RO-LYu" firstAttribute="bottom" secondItem="dt6-Cz-65a" secondAttribute="bottom" constant="20" id="MWM-ap-9es"/>
                             <constraint firstItem="UX7-Ya-ZMG" firstAttribute="top" secondItem="M2C-OJ-dtH" secondAttribute="bottom" constant="8.5" id="Npw-5C-WFn"/>
                             <constraint firstItem="iAg-RO-LYu" firstAttribute="trailing" secondItem="Wpe-LZ-flZ" secondAttribute="trailing" constant="20" id="OdU-GS-4rP"/>
                             <constraint firstItem="8e7-co-8lZ" firstAttribute="leading" secondItem="iAg-RO-LYu" secondAttribute="leading" id="Scf-Ey-fmt"/>
                             <constraint firstItem="kSE-6i-xEd" firstAttribute="top" secondItem="iAg-RO-LYu" secondAttribute="top" id="TSX-9I-fcZ"/>
                             <constraint firstItem="dGf-Mf-X8L" firstAttribute="top" secondItem="Wpe-LZ-flZ" secondAttribute="bottom" constant="30" id="VBV-c0-g6x"/>
                             <constraint firstItem="iAg-RO-LYu" firstAttribute="bottom" secondItem="dGf-Mf-X8L" secondAttribute="bottom" constant="20" id="i3L-iL-Lyl"/>
+                            <constraint firstItem="M2C-OJ-dtH" firstAttribute="top" secondItem="8e7-co-8lZ" secondAttribute="bottom" constant="25.5" id="poV-3N-Gl3"/>
                             <constraint firstItem="8e7-co-8lZ" firstAttribute="top" secondItem="kSE-6i-xEd" secondAttribute="bottom" id="re2-PF-RzZ"/>
                             <constraint firstItem="M2C-OJ-dtH" firstAttribute="leading" secondItem="UX7-Ya-ZMG" secondAttribute="leading" constant="-12" id="roO-6r-XOx"/>
                             <constraint firstItem="dt6-Cz-65a" firstAttribute="top" secondItem="UX7-Ya-ZMG" secondAttribute="bottom" constant="15" id="sCg-PT-V4i"/>
