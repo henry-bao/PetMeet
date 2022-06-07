@@ -35,6 +35,15 @@ class MatchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let db = Firestore.firestore()
+        let currentUserID = Auth.auth().currentUser!.uid
+        
+        db.collection("users").document(currentUserID).getDocument { (snapshot, error) in
+            if error == nil && snapshot != nil {
+                self.petID = snapshot!.data()!["like list"] as! [String]
+            }
+        }
+        
         getData()
         getPetNum()
         nameAndAgeButton.setAttributedTitle(NSAttributedString(string: "\(petname)  \(petage)yrs"), for: .normal)
@@ -92,15 +101,19 @@ class MatchViewController: UIViewController {
         db.collection("users").document(self.userID[self.petIndex]).collection("pets").getDocuments { (snapshot, error) in
             if error == nil && snapshot != nil {
                 let document = snapshot!.documents[0]
-                self.petID.append(document.documentID)
+                if !self.petID.contains(document.documentID) {
+                    self.petID.append(document.documentID)
+                    db.collection("users").document(currentUserID).updateData(["like list": self.petID])
+                }
             }
         }
-        db.collection("users").document(currentUserID).updateData(["like list": petID])
         
         if self.petIndex >=  self.petNum - 1 { // no more pets to view
             let alert = UIAlertController(title: "You have viewed all the pets.", message: "See what you liked in the Like List!", preferredStyle: .alert)
                      alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in }))
                      self.present(alert, animated: true, completion: { NSLog("The completion handler fired") })
+            self.likeButton.isHidden = true
+            self.dislikeButton.isHidden = true
         } else {
             // display next pet info
             self.petIndex += 1
