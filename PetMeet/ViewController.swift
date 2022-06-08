@@ -23,6 +23,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        setupView()
         showAlert()
         // if user is already logged in, skip the login screen
         if let user = Auth.auth().currentUser {
@@ -43,8 +44,6 @@ class ViewController: UIViewController {
                     }
                 }
             }
-        } else {
-            setupView()
         }
     }
     
@@ -70,7 +69,6 @@ class ViewController: UIViewController {
 
     func showAlert() {
         if !isInternetAvailable() {
-            setupView()
             let alert = UIAlertController(title: "Warning", message: "The Internet is not available", preferredStyle: .alert)
             let action = UIAlertAction(title: "Dismiss", style: .default, handler: nil)
             alert.addAction(action)
